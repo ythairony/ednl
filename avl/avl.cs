@@ -91,6 +91,15 @@ public class Avl {
 
 
     //Método de remoção
+    public object Remove(object elem) {
+        return true;
+    }
+
+
+    //Método mostrar árvore 
+    public void ShowTree() {
+
+    }
 
 
     // Métodos de ordenação Sucessão, EmOrdem, PréOrdem e PosOrdem
@@ -170,7 +179,19 @@ public class Avl {
 
 
     //Métodos de altura e profundidade
+    public int Height(Node node) {
+        return 1;
+    }
 
+
+    public int Depth(Node node) {
+        return 1;
+    }
+
+
+    private int Deeper(Node node) {
+        return 1;
+    }
 
  }
 
