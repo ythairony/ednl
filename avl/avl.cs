@@ -125,6 +125,7 @@ public class Avl {
         object[,] matriz = new object[(Height(root)+1), length];
         int altura = Height(root);
         showTree = new ArrayList();
+        ShowTreeConstruction(root);
 
         for (int i = 0; i < length; i++) {
             object obj = ((Node)showTree[i]).GetElem();
@@ -142,6 +143,21 @@ public class Avl {
                 if (j == length - 1) {
                     Console.WriteLine();
                 }
+            }
+        }
+    }
+
+
+    private void ShowTreeConstruction(Node node) { // Ordena da esquerda pra direita
+        if(IsInternal(node)) {
+            if(node.GetLeftChild() != null) {
+                ShowTreeConstruction(node.GetLeftChild());
+            }
+        }
+        showTree.Add(node);
+        if(IsInternal(node)) {
+            if(node.GetRightChild() != null) {
+                ShowTreeConstruction(node.GetRightChild());
             }
         }
     }
