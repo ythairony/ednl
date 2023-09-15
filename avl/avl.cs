@@ -115,6 +115,7 @@ public class Avl {
             sucessor.SetRightChild(node.GetRightChild());
         }
 
+        this.length--;
         return elem;
     }
 
