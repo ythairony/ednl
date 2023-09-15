@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\bin\Debug\net7.0\avl.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\bin\Debug\net7.0\avl.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\bin\Debug\net7.0\avl.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\bin\Debug\net7.0\avl.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\bin\Debug\net7.0\avl.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\refint\avl.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\avl.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\avl\obj\Debug\net7.0\ref\avl.dll

@@ -93,7 +93,29 @@ public class Avl {
 
     //Método de remoção
     public object Remove(object elem) {
-        return true;
+        Node node = SearchInt(root, elem);
+
+        if (IsExternal(node)) {                      // removendo o no da árvore
+            if (node.GetDad().GetLeftChild().Equals(node)) {
+                node.GetDad().SetLeftChild(null);
+            } else if (node.GetDad().GetRightChild().Equals(node)) {
+                node.GetDad().SetRightChild(null);
+            }
+        } else if (node.GetLeftChild() != null && node.GetRightChild() == null) {
+            node.GetDad().SetLeftChild(node.GetLeftChild());    // subindo o filho esquerdo do nó pro lugar dele
+            node.GetLeftChild().SetDad(node.GetDad());              // settando o pai do nó que subiu
+        } else if (node.GetRightChild() != null && node.GetLeftChild() == null) {
+            node.GetDad().SetRightChild(node.GetRightChild());
+            node.GetRightChild().SetDad(node.GetDad());
+        } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
+            Node sucessor = Sucessor(node);
+            sucessor.GetDad().SetLeftChild(null);
+            sucessor.SetDad(node.GetDad());
+            sucessor.SetLeftChild(node.GetLeftChild());
+            sucessor.SetRightChild(node.GetRightChild());
+        }
+
+        return elem;
     }
 
 
