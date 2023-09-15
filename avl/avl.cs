@@ -74,6 +74,7 @@ public class Avl {
         }
     }
 
+
     //Método de inserção
     public Node Push(object elem) {
         Node dad = SearchInt(root, elem);
@@ -180,17 +181,36 @@ public class Avl {
 
     //Métodos de altura e profundidade
     public int Height(Node node) {
-        return 1;
+        if (IsExternal(node)) {
+            return 0;
+        } else {
+            int height = 0;
+            int childHeight;
+            if (node.GetLeftChild() != null) {
+                childHeight = Height(node.GetLeftChild());
+                height = Math.Max(height, childHeight);
+            } else if(node.GetRightChild() != null) {
+                childHeight = Height(node.GetRightChild());
+                height = Math.Max(height, childHeight);
+            }
+
+            return height;
+        }
     }
 
 
     public int Depth(Node node) {
-        return 1;
+        int depth = this.Deep(node);
+        return depth;
     }
 
 
-    private int Deeper(Node node) {
-        return 1;
+    private int Deep(Node node) {
+        if (node == root) {
+            return 0;
+        } else {
+            return (1 + this.Deep(node.GetDad()));
+        }
     }
 
  }
