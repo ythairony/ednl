@@ -86,7 +86,7 @@ public class Avl {
             dad.SetRightChild(newNode);
         }
 
-        length++;
+        this.length++;
         return newNode;
     }
 
@@ -122,7 +122,8 @@ public class Avl {
 
     //Método mostrar árvore 
     public void ShowTree() {
-        object[,] matriz = new object[Height(root) + 1, length];
+        object[,] matriz = new object[(Height(root)+1), length];
+        int altura = Height(root);
         showTree = new ArrayList();
 
         for (int i = 0; i < length; i++) {
@@ -233,12 +234,14 @@ public class Avl {
             if (node.GetLeftChild() != null) {
                 childHeight = Height(node.GetLeftChild());
                 height = Math.Max(height, childHeight);
-            } else if(node.GetRightChild() != null) {
+            } 
+            
+            if(node.GetRightChild() != null) {
                 childHeight = Height(node.GetRightChild());
                 height = Math.Max(height, childHeight);
             }
 
-            return height;
+            return height + 1;
         }
     }
 
