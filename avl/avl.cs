@@ -99,13 +99,34 @@ public class Avl {
 
     //Método mostrar árvore 
     public void ShowTree() {
+        object[,] matriz = new object[Height(root) + 1, length];
+        showTree = new ArrayList();
 
+        for (int i = 0; i < length; i++) {
+            object obj = ((Node)showTree[i]).GetElem();
+            matriz[Depth((Node)showTree[i]), i] = obj;
+        }
+
+        for (int i = 0; i < Height(root) + 1; i++) {
+            for (int j = 0; i < length; i++) {
+                if (matriz[i, j] == null) {
+                    Console.Write(" ");
+                } else {
+                    Console.Write(matriz[i,j]);
+                }
+
+                if (j == length - 1) {
+                    Console.WriteLine();
+                }
+            }
+        }
     }
 
 
     // Métodos de ordenação Sucessão, EmOrdem, PréOrdem e PosOrdem
     private static Node Sucessor(Node node) {
         Node sucessor = node.GetRightChild();
+
         while(sucessor.GetLeftChild() != null) {
             sucessor = sucessor.GetLeftChild();
         }
