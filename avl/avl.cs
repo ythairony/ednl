@@ -122,7 +122,7 @@ public class Avl {
 
     //Método mostrar árvore 
     public void ShowTree() {
-        object[,] matriz = new object[(Height(root)+1), length];
+        object[,] matriz = new object[Height(root)+1, length];
         int altura = Height(root);
         showTree = new ArrayList();
         ShowTreeConstruction(root);
@@ -132,7 +132,8 @@ public class Avl {
             matriz[Depth((Node)showTree[i]), i] = obj;
         }
 
-        for (int i = 0; i < Height(root) + 1; i++) {
+        for (int i = 0; i < Height(root); i++) {
+            altura = Height(root);
             for (int j = 0; i < length; i++) {
                 if (matriz[i, j] == null) {
                     Console.Write(" ");

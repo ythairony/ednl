@@ -9,16 +9,16 @@ class Program {
         Node seis = pinheiro.Push(6);
         Node dois = pinheiro.Push(2);
         Node quatorze = pinheiro.Push(14);
-        Node dezenove = pinheiro.Push(19);
-        Node oito = pinheiro.Push(8);
-        Node tres = pinheiro.Push(3);
-        Node dezessete = pinheiro.Push(17);
-        Node vinte_um = pinheiro.Push(21);
-        // Node um = pinheiro.Push(1);
-        Node quadro = pinheiro.Push(4);
-        Node vinto = pinheiro.Push(20);
-        Node dezoito = pinheiro.Push(18);
-        Node sete = pinheiro.Push(7);
+        // Node dezenove = pinheiro.Push(19);
+        // Node oito = pinheiro.Push(8);
+        // Node tres = pinheiro.Push(3);
+        // Node dezessete = pinheiro.Push(17);
+        // Node vinte_um = pinheiro.Push(21);
+        // // Node um = pinheiro.Push(1);
+        // Node quadro = pinheiro.Push(4);
+        // Node vinto = pinheiro.Push(20);
+        // Node dezoito = pinheiro.Push(18);
+        // Node sete = pinheiro.Push(7);
         
         // TESTE REMOVE
         // Console.WriteLine($"Removido o elemento -> {pinheiro.Remove(2)}");
