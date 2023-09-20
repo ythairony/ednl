@@ -132,7 +132,7 @@ public class Avl {
             matriz[Depth((Node)showTree[i]), i] = obj;
         }
 
-        for (int i = 0; i < Height(root); i++) {
+        for (int i = 0; i < Height(root)+1; i++) {
             altura = Height(root);
             for (int j = 0; i < length; i++) {
                 if (matriz[i, j] == null) {
