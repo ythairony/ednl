@@ -44,6 +44,16 @@ public class Avl {
     }
 
 
+    public static bool IsLeftChild(Node node) {
+        return node == node.GetDad().GetLeftChild();
+    }
+    
+
+    public static bool IsRightChild(Node node) {
+        return node == node.GetDad().GetRightChild();
+    }
+
+
     //Métodos de comparação
     private static bool IsLeft(Node node) {
         return node.GetLeftChild() == null;
