@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj": {}
+    "C:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj": {}
   },
   "projects": {
-    "c:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj": {
+    "C:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj",
+        "projectUniqueName": "C:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj",
         "projectName": "avl",
-        "projectPath": "c:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj",
+        "projectPath": "C:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\avl.csproj",
         "packagesPath": "C:\\Users\\yurit\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\obj\\",
+        "outputPath": "C:\\Users\\yurit\\OneDrive\\Documentos\\IFRN\\período 4\\EDNL\\ednl\\avl\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yurit\\AppData\\Roaming\\NuGet\\NuGet.Config"
