@@ -164,13 +164,17 @@ public class Avl {
 
     //Método mostrar árvore 
     public void ShowTree() {
-        object[,] matriz = new object[Height(root)+1, length];
+        // object[,] matriz = new object[Height(root)+1, length];
+        Node[,] matriz = new Node[Height(root)+1, length];
         showTree = new ArrayList();
         ShowTreeConstruction(root);
 
         for (int i = 0; i < length; i++) {
-            object obj = ((Node)showTree[i]).GetElem();
-            matriz[Depth((Node)showTree[i]), i] = obj;
+            // object obj = ((Node)showTree[i]).GetElem();
+            Node no = ((Node)showTree[i]);
+            // matriz[Depth((Node)showTree[i]), i] = obj;
+            matriz[Depth((Node)showTree[i]), i] = no;
+
         }
 
         for (int i = 0; i < Height(root)+1; i++) {
@@ -178,7 +182,7 @@ public class Avl {
                 if (matriz[i, j] == null) {
                     Console.Write(" ");
                 } else {
-                    Console.Write(matriz[i,j]);
+                    Console.Write($"{matriz[i,j].GetElem()}-[{matriz[i,j].GetFb()}]");
                 }
 
                 if (j == length - 1) {
