@@ -97,7 +97,21 @@ public class Avl {
         }
 
         this.length++;
+        BalanceFactor(newNode);
         return newNode;
+    }
+
+
+    private void BalanceFactor(Node node) {
+        while (!IsRoot(node)) {
+            if (IsRightChild(node)) {
+                node.GetDad().DecrementFb();
+            } else if (IsLeftChild(node)) {
+                node.GetDad().IncrementFb();
+            }
+
+            node = node.GetDad();
+        }
     }
     
 
@@ -368,6 +382,16 @@ public class Node {
 
     public void SetFb(int fb) {
         this.fb = fb;
+    }
+
+
+    public void IncrementFb() {
+        this.fb++;
+    }
+
+
+    public void DecrementFb() {
+        this.fb--;
     }
 
 }
