@@ -99,6 +99,24 @@ public class Avl {
         this.length++;
         return newNode;
     }
+    
+
+    private int LeftHeight(Node node) {
+        if (node != null) {
+            return Height(node);
+        } else {
+            return 0;
+        }
+    }
+
+
+    private int RightHeight(Node node) {
+        if (node != null) {
+            return Height(node);
+        } else {
+            return 0;
+        }
+    }
 
 
     //Método de remoção
@@ -294,6 +312,7 @@ public class Node {
     private Node leftChild = null;
     private Node rightChild = null;
     private object elem;
+    private int fb;
 
 
     public Node(Node dad, object elem) {
@@ -322,6 +341,11 @@ public class Node {
     }
 
 
+    public int GetFb() {
+        return fb;
+    }
+
+
     public void SetElem(object elem) {
         this.elem = elem;
     } 
@@ -339,6 +363,11 @@ public class Node {
 
     public void SetRightChild(Node rc) {
         this.rightChild = rc;
+    }
+
+
+    public void SetFb(int fb) {
+        this.fb = fb;
     }
 
 }
