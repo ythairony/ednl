@@ -34,7 +34,8 @@ class Program {
         Console.WriteLine();
         Console.WriteLine($"Removendo o {pinheiro.Remove(12)}");
         Console.WriteLine($"Removendo o {pinheiro.Remove(8)}");
-        Console.WriteLine($"Tamanho: {pinheiro.Length()}");
+        // Console.WriteLine($"Tamanho: {pinheiro.Length()}");
+        pinheiro.ShowTree();
         
 
         }
