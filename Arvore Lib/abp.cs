@@ -5,7 +5,7 @@ public class Abp {
 
 
     // Construtor
-    public Abp(object elem) {
+    public Avl(object elem) {
         this.root = new Node(null, elem);
         this.length++;
     }
@@ -39,6 +39,16 @@ public class Abp {
 
     public static bool IsExternal(Node node) {
         return node.GetLeftChild() == null && node.GetRightChild() == null;
+    }
+
+
+    public static bool IsLeftChild(Node node) {
+        return node == node.GetDad().GetLeftChild();
+    }
+
+
+    public static bool IsRightChild(Node node) {
+        return node == node.GetDad().GetRightChild();
     }
 
 
@@ -93,14 +103,14 @@ public class Abp {
     public object Remove(object elem) {
         Node node = SearchInt(root, elem);
 
-        if (IsExternal(node)) {                      // removendo o no da árvore
+        if (IsExternal(node)) {                                     // removendo o no da árvore
             if (node.GetDad().GetLeftChild().Equals(node)) {
                 node.GetDad().SetLeftChild(null);
             } else if (node.GetDad().GetRightChild().Equals(node)) {
                 node.GetDad().SetRightChild(null);
             }
         } else if (node.GetLeftChild() != null && node.GetRightChild() == null) {
-            node.GetDad().SetLeftChild(node.GetLeftChild());    // subindo o filho esquerdo do nó pro lugar dele
+            node.GetDad().SetLeftChild(node.GetLeftChild());        // subindo o filho esquerdo do nó pro lugar dele
             node.GetLeftChild().SetDad(node.GetDad());              // settando o pai do nó que subiu
         } else if (node.GetRightChild() != null && node.GetLeftChild() == null) {
             node.GetDad().SetRightChild(node.GetRightChild());
