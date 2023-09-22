@@ -111,6 +111,24 @@ public class Avl {
             }
 
             node = node.GetDad();
+
+            if (node.GetFb() == 0) { break; }
+            // retonar daqui com debug
+            else if (node.GetFb() == 2) {
+                if (IsRoot(node)) {
+                    Node aux = node.GetLeftChild();
+                    node.SetLeftChild(null); // como o filho direito de aux
+                    aux.SetDad(null); // como pai do no
+                    aux.SetRightChild(node);
+                    root = aux;
+                    node = aux;
+                } else {
+                    Node aux = node.GetLeftChild();
+                    node.SetLeftChild(aux.GetRightChild()); // como o filho direito de aux
+                    aux.SetDad(node.GetDad()); // como pai do no
+                    aux.SetRightChild(node);
+                }
+            }
         }
     }
     
@@ -180,7 +198,7 @@ public class Avl {
         for (int i = 0; i < Height(root)+1; i++) {
             for (int j = 0; j < length; j++) {
                 if (matriz[i, j] == null) {
-                    Console.Write(" ");
+                    Console.Write("    ");
                 } else {
                     Console.Write($"{matriz[i,j].GetElem()}-[{matriz[i,j].GetFb()}]");
                 }
