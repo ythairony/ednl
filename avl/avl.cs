@@ -97,12 +97,12 @@ public class Avl {
         }
 
         this.length++;
-        BalanceFactor(newNode);
+        BalanceFactorPush(newNode);
         return newNode;
     }
 
 
-    private void BalanceFactor(Node node) {
+    private void BalanceFactorPush(Node node) {
         while (!IsRoot(node)) {
             if (IsRightChild(node)) {
                 node.GetDad().DecrementFb();
@@ -113,25 +113,26 @@ public class Avl {
             node = node.GetDad();
 
             if (node.GetFb() == 0) { break; }
-            // retonar daqui com debug
             else if (node.GetFb() == 2) {
-                if (IsRoot(node)) {
-                    Node aux = node.GetLeftChild();
-                    node.SetLeftChild(null); // como o filho direito de aux
-                    aux.SetDad(null); // como pai do no
-                    aux.SetRightChild(node);
-                    root = aux;
-                    node = aux;
-                } else {
-                    Node aux = node.GetLeftChild();
-                    node.SetLeftChild(aux.GetRightChild()); // como o filho direito de aux
-                    aux.SetDad(node.GetDad()); // como pai do no
-                    aux.SetRightChild(node);
-                }
+                SimpleRightRotation(node); // Rotação simples a direita
             }
         }
     }
     
+
+    private void SimpleRightRotation(Node node) {
+        Node newDad = node.GetLeftChild();
+        node.SetLeftChild(newDad.GetRightChild()); // como o filho direito de newDad
+        newDad.SetDad(node.GetDad()); // como pai do no
+        newDad.SetRightChild(node);
+        node.SetDad(newDad);
+        node.GetLeftChild().SetDad(node);
+        if (IsRoot(node)) {
+            this.root = newDad;
+            node = newDad;
+        }    
+    }
+
 
     private int LeftHeight(Node node) {
         if (node != null) {
@@ -200,7 +201,7 @@ public class Avl {
                 if (matriz[i, j] == null) {
                     Console.Write("    ");
                 } else {
-                    Console.Write($"{matriz[i,j].GetElem()}-[{matriz[i,j].GetFb()}]");
+                    Console.Write($"{matriz[i,j].GetElem()}[{matriz[i,j].GetFb()}]");
                 }
 
                 if (j == length - 1) {
