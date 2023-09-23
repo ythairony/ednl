@@ -115,6 +115,8 @@ public class Avl {
             if (node.GetFb() == 0) { break; }
             else if (node.GetFb() == 2) {
                 SimpleRightRotation(node); // Rotação simples a direita
+            } else if (node.GetFb() == -2) {
+                SimplesLeftRotation(node); // Rotação simples a esquerda
             }
         }
     }
@@ -126,14 +128,44 @@ public class Avl {
         newDad.SetDad(node.GetDad()); // como pai do no
         newDad.SetRightChild(node);
         node.SetDad(newDad);
+        node.SetFb(0);
+        
+        if (newDad.GetDad() != null) {
+            newDad.GetDad().SetLeftChild(newDad);
+        }
+
         if (node.GetLeftChild() != null) {
             node.GetLeftChild().SetDad(node);
         }
+
         if (IsRoot(node)) {
             this.root = newDad;
             node = newDad;
         }    
     }
+
+
+    private void SimplesLeftRotation(Node node) {
+        Node newDad = node.GetRightChild();
+        node.SetRightChild(newDad.GetLeftChild()); // como o filho direito de newDad
+        newDad.SetDad(node.GetDad()); // como pai do no
+        newDad.SetLeftChild(node);
+        node.SetDad(newDad);
+        node.SetFb(0);
+
+        if (newDad.GetDad() != null) {
+            newDad.GetDad().SetRightChild(newDad);
+        }
+
+        if (node.GetRightChild() != null) {
+            node.GetRightChild().SetDad(node);
+        }
+
+        if (IsRoot(node)) {
+            this.root = newDad;
+            node = newDad;
+        }
+    }    
 
 
     private int LeftHeight(Node node) {

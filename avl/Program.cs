@@ -7,13 +7,13 @@ class Program {
         Avl pinheiro = new Avl(10);
         
         // teste push ok
+        Node cinco = pinheiro.Push(5);
+        Node quinze = pinheiro.Push(15);
+        Node dois = pinheiro.Push(2);
         Node oito = pinheiro.Push(8);
-        // Node doze = pinheiro.Push(12);
-        // Node nove = pinheiro.Push(9);
-        Node seis = pinheiro.Push(6);
-        // Node tres = pinheiro.Push(3);
-        // Node quinze = pinheiro.Push(15);
-        // Node dois = pinheiro.Push(2);
+        Node vintedois = pinheiro.Push(22);
+        Node um = pinheiro.Push(1);
+        Node vintecinco = pinheiro.Push(25);
 
         // teste altura ok
         // Console.WriteLine("Altura");
