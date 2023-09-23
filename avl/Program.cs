@@ -8,10 +8,10 @@ class Program {
         
         // teste push ok
         Node oito = pinheiro.Push(8);
-        Node doze = pinheiro.Push(12);
-        Node nove = pinheiro.Push(9);
+        // Node doze = pinheiro.Push(12);
+        // Node nove = pinheiro.Push(9);
         Node seis = pinheiro.Push(6);
-        Node tres = pinheiro.Push(3);
+        // Node tres = pinheiro.Push(3);
         // Node quinze = pinheiro.Push(15);
         // Node dois = pinheiro.Push(2);
 

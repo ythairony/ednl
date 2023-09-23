@@ -126,7 +126,9 @@ public class Avl {
         newDad.SetDad(node.GetDad()); // como pai do no
         newDad.SetRightChild(node);
         node.SetDad(newDad);
-        node.GetLeftChild().SetDad(node);
+        if (node.GetLeftChild() != null) {
+            node.GetLeftChild().SetDad(node);
+        }
         if (IsRoot(node)) {
             this.root = newDad;
             node = newDad;
@@ -199,7 +201,7 @@ public class Avl {
         for (int i = 0; i < Height(root)+1; i++) {
             for (int j = 0; j < length; j++) {
                 if (matriz[i, j] == null) {
-                    Console.Write("    ");
+                    Console.Write("     ");
                 } else {
                     Console.Write($"{matriz[i,j].GetElem()}[{matriz[i,j].GetFb()}]");
                 }
