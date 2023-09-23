@@ -4,42 +4,31 @@ using System.Collections;
 
 class Program {
     public static void Main(string[] args) {
-        Avl pinheiro = new Avl(10);
+        Avl avl = new Avl(10);
         
-        // teste push ok
-        Node cinco = pinheiro.Push(5);
-        Node quinze = pinheiro.Push(15);
-        Node dois = pinheiro.Push(2);
-        Node oito = pinheiro.Push(8);
-        Node vintedois = pinheiro.Push(22);
-        Node um = pinheiro.Push(1);
-        Node vintecinco = pinheiro.Push(25);
+        // teste coleguinha
+        // Node cinco = avl.Push(5);
+        // Node quinze = avl.Push(15);
+        // Node dois = avl.Push(2);
+        // Node oito = avl.Push(8);
+        // Node vintedois = avl.Push(22);
+        // Node vintecinco = avl.Push(25);
 
-        // teste altura ok
-        // Console.WriteLine("Altura");
-        // Console.WriteLine(pinheiro.Height(pinheiro.Root())); // 2
-        // Console.WriteLine(pinheiro.Height(oito)); // 1
-        // Console.WriteLine(pinheiro.Height(sete)); // 0
-        // Console.WriteLine(pinheiro.Height(doze)); // 0
+        // teste duplo direita
+        Node oito = avl.Push(8);
+        Node nove = avl.Push(9);
 
-        // // teste profundidade ok
-        // Console.WriteLine();
-        // Console.WriteLine("Profundidade");
-        // Console.WriteLine(pinheiro.Depth(pinheiro.Root())); // 0
-        // Console.WriteLine(pinheiro.Depth(oito)); // 1
-        // Console.WriteLine(pinheiro.Depth(sete)); // 2
-        // Console.WriteLine(pinheiro.Depth(doze)); // 1
-        
+
         // // tamanho ok
         // Console.WriteLine();
-        // Console.WriteLine($"Tamanho: {pinheiro.Length()}");
+        // Console.WriteLine($"Tamanho: {avl.Length()}");
 
         // // teste remove ok
         // Console.WriteLine();
-        // Console.WriteLine($"Removendo o {pinheiro.Remove(12)}");
-        // Console.WriteLine($"Removendo o {pinheiro.Remove(8)}");
-        // Console.WriteLine($"Tamanho: {pinheiro.Length()}");
-        pinheiro.ShowTree();
+        // Console.WriteLine($"Removendo o {avl.Remove(12)}");
+        // Console.WriteLine($"Removendo o {avl.Remove(8)}");
+        // Console.WriteLine($"Tamanho: {avl.Length()}");
+        avl.ShowTree();
         
 
         }
