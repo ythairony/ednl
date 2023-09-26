@@ -16,7 +16,7 @@ class Program {
 
         // teste duplo direita
         Node oito = avl.Push(8);
-        Node nove = avl.Push(9);
+        // Node nove = avl.Push(9);
 
 
         // // tamanho ok

@@ -406,6 +406,7 @@ public class Node {
     public Node(Node dad, object elem) {
         this.dad = dad;
         this.elem = elem;
+        this.fb=0;
     }
 
 
