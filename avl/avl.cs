@@ -86,7 +86,7 @@ public class Avl {
 
 
     //Método de inserção
-    public Node Push(object elem) {
+    public Node Insert(object elem) {
         Node dad = SearchInt(root, elem);
         Node newNode = new Node(dad, elem);
 
@@ -97,12 +97,12 @@ public class Avl {
         }
 
         this.length++;
-        BalanceFactorPush(newNode);
+        BalanceFactorInsert(newNode);
         return newNode;
     }
 
 
-    private void BalanceFactorPush(Node node) {
+    private void BalanceFactorInsert(Node node) {
         while (!IsRoot(node)) {
             if (IsRightChild(node)) {
                 node.GetDad().DecrementFb();
@@ -136,13 +136,13 @@ public class Avl {
         // erro tá por aqui
         if (newDad.GetDad() != null && newDad.GetLeftChild() != null) {
             newDad.GetDad().SetLeftChild(newDad);
-        } else {
+        } else if (newDad.GetDad() != null) {
             newDad.GetDad().SetRightChild(newDad);
         }
 
-        if (node.GetLeftChild() != null) {
-            node.GetLeftChild().SetDad(node);
-        }
+        // if (node.GetLeftChild() != null) {
+        //     node.GetLeftChild().SetDad(node);
+        // }
 
         if (IsRoot(node)) {
             this.root = newDad;
@@ -162,13 +162,13 @@ public class Avl {
         // erro tá por aqui
         if (newDad.GetDad() != null && newDad.GetRightChild() != null) {
             newDad.GetDad().SetRightChild(newDad);
-        } else {
+        } else if (newDad.GetDad() != null) {
             newDad.GetDad().SetLeftChild(newDad);
         }
 
-        if (node.GetRightChild() != null) {
-            node.GetRightChild().SetDad(node);
-        }
+        // if (node.GetRightChild() != null) {
+        //     node.GetRightChild().SetDad(node);
+        // }
 
         if (IsRoot(node)) {
             this.root = newDad;
