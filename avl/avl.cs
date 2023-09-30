@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 public class Avl {
@@ -115,12 +116,21 @@ public class Avl {
             if (node.GetFb() == 0) { break; }
 
             // Rotação simples a direita
-            else if (node.GetFb() == 2 && node.GetLeftChild().GetFb() == 1) { SimpleRightRotation(node); }
+            else if (node.GetFb() == 2 && node.GetLeftChild().GetFb() == 1) { 
+                SimpleRightRotation(node); 
+                break;
+            }
 
             // Rotação simples a esquerda
-            else if (node.GetFb() == -2 && node.GetRightChild().GetFb() == -1) { SimplesLeftRotation(node); }
+            else if (node.GetFb() == -2 && node.GetRightChild().GetFb() == -1) { 
+                SimplesLeftRotation(node); 
+                break;
+            }
 
-            else if (node.GetFb() == 2 && node.GetLeftChild().GetFb() == -1) { DoubleRightRotation(node.GetLeftChild()); }
+            else if (node.GetFb() == 2 && node.GetLeftChild().GetFb() == -1) { 
+                DoubleRightRotation(node.GetLeftChild()); 
+                break;    
+            }
         }
     }
     
@@ -151,13 +161,15 @@ public class Avl {
     }
 
 
-    private void SimplesLeftRotation(Node node) {
+    private Node SimplesLeftRotation(Node node) {
         Node newDad = node.GetRightChild();
         node.SetRightChild(newDad.GetLeftChild()); // como o filho direito de newDad
         newDad.SetDad(node.GetDad()); // como pai do no
         newDad.SetLeftChild(node);
         node.SetDad(newDad);
-        node.SetFb(0);
+        node.SetFb(node.GetFb() + 1 - Math.Min(newDad.GetFb(), 0));
+        newDad.SetFb(newDad.GetFb() + 1 + Math.Max(node.GetFb(), 0));
+        // node.SetFb(0);
 
         // erro tá por aqui
         if (newDad.GetDad() != null && newDad.GetRightChild() != null) {
@@ -173,7 +185,9 @@ public class Avl {
         if (IsRoot(node)) {
             this.root = newDad;
             node = newDad;
+            return node;
         }
+        return node;
     }    
 
 

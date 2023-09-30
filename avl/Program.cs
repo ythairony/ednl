@@ -14,9 +14,17 @@ class Program {
         // Node vintedois = avl.Insert(22);
         // Node vintecinco = avl.Insert(25);
 
+        // teste simples esqueda
+        avl.Insert(14);
+        avl.Insert(20);
+
+        // teste simples direita
+        // avl.Insert(6);
+        // avl.Insert(4);
+
         // teste duplo direita
-        Node oito = avl.Insert(8);
-        Node nove = avl.Insert(9);
+        // Node oito = avl.Insert(8);
+        // Node nove = avl.Insert(9);
 
 
         // // tamanho ok
