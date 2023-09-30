@@ -236,11 +236,20 @@ public class Avl {
             node.GetRightChild().SetDad(node.GetDad());
         } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
             Node sucessor = Sucessor(node);
-            sucessor.GetDad().SetLeftChild(null);
             sucessor.SetDad(node.GetDad());
             sucessor.SetLeftChild(node.GetLeftChild());
-            sucessor.SetRightChild(node.GetRightChild());
+            node.GetLeftChild().SetDad(sucessor);
+            if (IsRightChild(node)) {
+                node.GetDad().SetRightChild(sucessor);
+            } else {
+                node.GetDad().SetLeftChild(sucessor);
+            }
         }
+
+            // sucessor.GetDad().SetLeftChild(null);
+            // sucessor.SetDad(node.GetDad());
+            // sucessor.SetLeftChild(node.GetLeftChild());
+            // sucessor.SetRightChild(node.GetRightChild());
 
         this.length--;
         return elem;

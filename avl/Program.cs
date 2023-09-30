@@ -14,6 +14,8 @@ class Program {
         avl.Insert(22);
         avl.Insert(25);
         
+        avl.Remove(5);
+        // avl.Remove(25);
         // Teste de inserções dinâmicas
         // while (true) {
         //     Console.Write("Insira um valor [0 para parar]: ");
