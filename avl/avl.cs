@@ -141,7 +141,9 @@ public class Avl {
         newDad.SetDad(node.GetDad()); // como pai do no
         newDad.SetRightChild(node);
         node.SetDad(newDad);
-        node.SetFb(0);
+        node.SetFb(node.GetFb() - 1 - Math.Max(newDad.GetFb(), 0));
+        newDad.SetFb(newDad.GetFb() - 1 + Math.Min(node.GetFb(), 0));
+        // node.SetFb(0);
 
         // erro tá por aqui
         if (newDad.GetDad() != null && newDad.GetLeftChild() != null) {
