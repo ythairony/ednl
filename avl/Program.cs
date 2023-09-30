@@ -7,12 +7,12 @@ class Program {
         Avl avl = new Avl(10);
         
         // teste coleguinha
-        // Node cinco = avl.Insert(5);
-        // Node quinze = avl.Insert(15);
-        // Node dois = avl.Insert(2);
-        // Node oito = avl.Insert(8);
-        // Node vintedois = avl.Insert(22);
-        // Node vintecinco = avl.Insert(25);
+        avl.Insert(5);
+        avl.Insert(15);
+        avl.Insert(2);
+        avl.Insert(8);
+        avl.Insert(22);
+        avl.Insert(25);
 
         // // teste simples esqueda
         // avl.Insert(14);
@@ -27,8 +27,8 @@ class Program {
         // Node nove = avl.Insert(9);
 
         // teste duplo a esquerda
-        avl.Insert(16);
-        avl.Insert(11);
+        // avl.Insert(16);
+        // avl.Insert(11);
 
 
         // // tamanho ok
