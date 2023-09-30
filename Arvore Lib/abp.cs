@@ -116,11 +116,15 @@ public class Abp {
             node.GetDad().SetRightChild(node.GetRightChild());
             node.GetRightChild().SetDad(node.GetDad());
         } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
-            Node sucessor = Sucessor(node);
-            sucessor.GetDad().SetLeftChild(null);
-            sucessor.SetDad(node.GetDad());
-            sucessor.SetLeftChild(node.GetLeftChild());
-            sucessor.SetRightChild(node.GetRightChild());
+            Node nextNode = NextNode(node);
+            nextNode.SetDad(node.GetDad());
+            nextNode.SetLeftChild(node.GetLeftChild());
+            node.GetLeftChild().SetDad(nextNode);
+            if (IsRightChild(node)) {
+                node.GetDad().SetRightChild(nextNode);
+            } else {
+                node.GetDad().SetLeftChild(nextNode);
+            }
         }
 
         this.length--;
@@ -171,14 +175,14 @@ public class Abp {
 
 
     // Métodos de ordenação Sucessão, EmOrdem, PréOrdem e PosOrdem
-    private static Node Sucessor(Node node) {
-        Node sucessor = node.GetRightChild();
+    private static Node NextNode(Node node) {
+        Node nextNode = node.GetRightChild();
 
-        while(sucessor.GetLeftChild() != null) {
-            sucessor = sucessor.GetLeftChild();
+        while(nextNode.GetLeftChild() != null) {
+            nextNode = nextNode.GetLeftChild();
         }
 
-        return sucessor;
+        return nextNode;
     }
 
 

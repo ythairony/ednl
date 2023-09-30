@@ -235,21 +235,21 @@ public class Avl {
             node.GetDad().SetRightChild(node.GetRightChild());
             node.GetRightChild().SetDad(node.GetDad());
         } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
-            Node sucessor = Sucessor(node);
-            sucessor.SetDad(node.GetDad());
-            sucessor.SetLeftChild(node.GetLeftChild());
-            node.GetLeftChild().SetDad(sucessor);
+            Node nextNode = NextNode(node);
+            nextNode.SetDad(node.GetDad());
+            nextNode.SetLeftChild(node.GetLeftChild());
+            node.GetLeftChild().SetDad(nextNode);
             if (IsRightChild(node)) {
-                node.GetDad().SetRightChild(sucessor);
+                node.GetDad().SetRightChild(nextNode);
             } else {
-                node.GetDad().SetLeftChild(sucessor);
+                node.GetDad().SetLeftChild(nextNode);
             }
         }
 
-            // sucessor.GetDad().SetLeftChild(null);
-            // sucessor.SetDad(node.GetDad());
-            // sucessor.SetLeftChild(node.GetLeftChild());
-            // sucessor.SetRightChild(node.GetRightChild());
+            // nextNode.GetDad().SetLeftChild(null);
+            // nextNode.SetDad(node.GetDad());
+            // nextNode.SetLeftChild(node.GetLeftChild());
+            // nextNode.SetRightChild(node.GetRightChild());
 
         this.length--;
         return elem;
@@ -303,14 +303,14 @@ public class Avl {
 
 
     // Métodos de ordenação Sucessão, EmOrdem, PréOrdem e PosOrdem
-    private static Node Sucessor(Node node) {
-        Node sucessor = node.GetRightChild();
+    private static Node NextNode(Node node) {
+        Node nextNode = node.GetRightChild();
 
-        while(sucessor.GetLeftChild() != null) {
-            sucessor = sucessor.GetLeftChild();
+        while(nextNode.GetLeftChild() != null) {
+            nextNode = nextNode.GetLeftChild();
         }
 
-        return sucessor;
+        return nextNode;
     }
 
 
