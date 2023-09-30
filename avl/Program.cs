@@ -13,6 +13,15 @@ class Program {
         avl.Insert(8);
         avl.Insert(22);
         avl.Insert(25);
+        
+        // Teste de inserções dinâmicas
+        // while (true) {
+        //     Console.Write("Insira um valor [0 para parar]: ");
+        //     int x = int.Parse(Console.ReadLine());
+        //     avl.Insert(x);
+        //     if (x == 0) break;
+        //     avl.ShowTree();
+        // }
 
         // // teste simples esqueda
         // avl.Insert(14);
