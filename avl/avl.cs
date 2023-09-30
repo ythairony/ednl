@@ -223,9 +223,9 @@ public class Avl {
         Node node = SearchInt(root, elem);
 
         if (IsExternal(node)) {                                     // removendo o no da árvore
-            if (node.GetDad().GetLeftChild().Equals(node)) {
+            if (IsLeftChild(node)) {
                 node.GetDad().SetLeftChild(null);
-            } else if (node.GetDad().GetRightChild().Equals(node)) {
+            } else if (IsRightChild(node)) {
                 node.GetDad().SetRightChild(null);
             }
         } else if (node.GetLeftChild() != null && node.GetRightChild() == null) {
@@ -253,6 +253,11 @@ public class Avl {
 
         this.length--;
         return elem;
+    }
+
+
+    private void BalanceFactorRemove(Node node) {
+        
     }
 
 
