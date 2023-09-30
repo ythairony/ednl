@@ -26,6 +26,10 @@ class Program {
         // Node oito = avl.Insert(8);
         // Node nove = avl.Insert(9);
 
+        // teste duplo a esquerda
+        avl.Insert(16);
+        avl.Insert(11);
+
 
         // // tamanho ok
         // Console.WriteLine();
