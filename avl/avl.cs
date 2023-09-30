@@ -218,24 +218,6 @@ public class Avl {
     }
 
 
-    private int LeftHeight(Node node) {
-        if (node != null) {
-            return Height(node);
-        } else {
-            return 0;
-        }
-    }
-
-
-    private int RightHeight(Node node) {
-        if (node != null) {
-            return Height(node);
-        } else {
-            return 0;
-        }
-    }
-
-
     //Método de remoção
     public object Remove(object elem) {
         Node node = SearchInt(root, elem);
