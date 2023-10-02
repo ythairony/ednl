@@ -1,0 +1,5 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.csproj.CoreCompileInputs.cache
