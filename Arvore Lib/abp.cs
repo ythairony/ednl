@@ -84,7 +84,7 @@ public class Abp {
 
 
     //Método de inserção
-    public Node Push(object elem) {
+    public Node Insert(object elem) {
         Node dad = SearchInt(root, elem);
         Node newNode = new Node(dad, elem);
 

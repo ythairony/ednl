@@ -3,3 +3,13 @@ C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Deb
 C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.AssemblyInfoInputs.cache
 C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.AssemblyInfo.cs
 C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\bin\Debug\net7.0\rubro-negra.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\bin\Debug\net7.0\rubro-negra.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\bin\Debug\net7.0\rubro-negra.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\bin\Debug\net7.0\rubro-negra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\bin\Debug\net7.0\rubro-negra.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\refint\rubro-negra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\rubro-negra.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\rubro-negra\obj\Debug\net7.0\ref\rubro-negra.dll
