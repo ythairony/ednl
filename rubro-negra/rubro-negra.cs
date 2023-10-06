@@ -7,9 +7,10 @@ public class RubroNegra {
 
 
     // Construtor
-    public RubroNegra(object elem) {
-        this.root = new Node(null, elem);
+    public RubroNegra(object key) {
+        this.root = new Node(null, key);
         this.length++;
+        this.color = "black";
     }
 
 
@@ -66,18 +67,18 @@ public class RubroNegra {
 
 
     //Método de pesquisa
-    private Node SearchInt(Node node, object elem) {
-        if ((int)elem < (int)node.GetElem()) {
+    private Node SearchInt(Node node, object key) {
+        if ((int)key < (int)node.Getkey()) {
             if (IsLeft(node)) {
                 return node;
             } else {
-                return SearchInt(node.GetLeftChild(), elem);
+                return SearchInt(node.GetLeftChild(), key);
             }
-        } else if((int)elem > (int)node.GetElem()) {
+        } else if((int)key > (int)node.Getkey()) {
             if (IsRight(node)) {
                 return node;
             } else {
-                return SearchInt(node.GetRightChild(), elem);
+                return SearchInt(node.GetRightChild(), key);
             }
         } else {
             return node;
@@ -86,11 +87,11 @@ public class RubroNegra {
 
 
     //Método de inserção
-    public Node Insert(object elem) {
-        Node dad = SearchInt(root, elem);
-        Node newNode = new Node(dad, elem);
+    public Node Insert(object key) {
+        Node dad = SearchInt(root, key);
+        Node newNode = new Node(dad, key);
 
-        if((int)elem < (int)dad.GetElem()) {
+        if((int)key < (int)dad.Getkey()) {
             dad.SetLeftChild(newNode);
         } else {
             dad.SetRightChild(newNode);
@@ -102,8 +103,8 @@ public class RubroNegra {
 
 
     //Método de remoção
-    public object Remove(object elem) {
-        Node node = SearchInt(root, elem);
+    public object Remove(object key) {
+        Node node = SearchInt(root, key);
 
         if (IsExternal(node)) {                                     // removendo o no da árvore
             if (node.GetDad().GetLeftChild().Equals(node)) {
@@ -130,7 +131,7 @@ public class RubroNegra {
         }
 
         this.length--;
-        return elem;
+        return key;
     }
 
 
@@ -141,7 +142,7 @@ public class RubroNegra {
         ShowTreeConstruction(root);
 
         for (int i = 0; i < length; i++) {
-            object obj = ((Node)showTree[i]).GetElem();
+            object obj = ((Node)showTree[i]).Getkey();
             matriz[Depth((Node)showTree[i]), i] = obj;
         }
 
@@ -195,7 +196,7 @@ public class RubroNegra {
             }
         } 
 
-        showTree.Add(node.GetElem());
+        showTree.Add(node.Getkey());
 
         if(IsInternal(node)) {
             if(!IsRight(node)) {
@@ -206,7 +207,7 @@ public class RubroNegra {
 
 
     private void PreOrder(Node node) {
-        showTree.Add(node.GetElem());
+        showTree.Add(node.Getkey());
 
         if(IsInternal(node)) {
             if(!IsLeft(node)) {
@@ -235,7 +236,7 @@ public class RubroNegra {
             }
         }
 
-        showTree.Add(node.GetElem());
+        showTree.Add(node.Getkey());
     }
 
 
@@ -246,7 +247,7 @@ public class RubroNegra {
     }
 
 
-    public IEnumerator Elements() {
+    public IEnumerator keyents() {
         showTree = new ArrayList();
         InOrder(root);
         return showTree.GetEnumerator();
@@ -295,17 +296,18 @@ public class RubroNegra {
     private Node dad;
     private Node leftChild = null;
     private Node rightChild = null;
-    private object elem;
+    private object key;
+    private string color = "red";
 
 
-    public Node(Node dad, object elem) {
+    public Node(Node dad, object key) {
         this.dad = dad;
-        this.elem = elem;
+        this.key = key;
     }
 
 
-    public object GetElem() {
-        return elem;
+    public object Getkey() {
+        return key;
     }
 
 
@@ -324,8 +326,8 @@ public class RubroNegra {
     }
 
 
-    public void SetElem(object elem) {
-        this.elem = elem;
+    public void Setkey(object key) {
+        this.key = key;
     } 
 
 
