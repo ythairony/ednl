@@ -10,7 +10,7 @@ public class RubroNegra {
     public RubroNegra(object key) {
         this.root = new Node(null, key);
         this.length++;
-        
+        root.SetColor("black");
     }
 
 
@@ -107,16 +107,16 @@ public class RubroNegra {
         Node node = SearchInt(root, key);
 
         if (IsExternal(node)) {                                     // removendo o no da árvore
-            if (node.GetDad().GetLeftChild().Equals(node)) {
+            if (IsLeftChild(node)) {
                 node.GetDad().SetLeftChild(null);
-            } else if (node.GetDad().GetRightChild().Equals(node)) {
+            } else if (IsRightChild(node)) {
                 node.GetDad().SetRightChild(null);
             }
         } else if (node.GetLeftChild() != null && node.GetRightChild() == null) {
-            node.GetDad().SetLeftChild(node.GetLeftChild());        // subindo o filho esquerdo do nó pro lugar dele
+            node.GetDad().SetRightChild(node.GetLeftChild());        // subindo o filho esquerdo do nó pro lugar dele
             node.GetLeftChild().SetDad(node.GetDad());              // settando o pai do nó que subiu
         } else if (node.GetRightChild() != null && node.GetLeftChild() == null) {
-            node.GetDad().SetRightChild(node.GetRightChild());
+            node.GetDad().SetLeftChild(node.GetRightChild());
             node.GetRightChild().SetDad(node.GetDad());
         } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
             Node nextNode = NextNode(node);

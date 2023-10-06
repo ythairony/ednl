@@ -229,10 +229,10 @@ public class Avl {
                 node.GetDad().SetRightChild(null);
             }
         } else if (node.GetLeftChild() != null && node.GetRightChild() == null) {
-            node.GetDad().SetLeftChild(node.GetLeftChild());        // subindo o filho esquerdo do nó pro lugar dele
+            node.GetDad().SetRightChild(node.GetLeftChild());        // subindo o filho esquerdo do nó pro lugar dele
             node.GetLeftChild().SetDad(node.GetDad());              // settando o pai do nó que subiu
         } else if (node.GetRightChild() != null && node.GetLeftChild() == null) {
-            node.GetDad().SetRightChild(node.GetRightChild());
+            node.GetDad().SetLeftChild(node.GetRightChild());
             node.GetRightChild().SetDad(node.GetDad());
         } else if (node.GetLeftChild() != null && node.GetRightChild() != null) {
             Node nextNode = NextNode(node);
