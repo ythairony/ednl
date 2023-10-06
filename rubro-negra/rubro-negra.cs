@@ -10,7 +10,7 @@ public class RubroNegra {
     public RubroNegra(object key) {
         this.root = new Node(null, key);
         this.length++;
-        this.color = "black";
+        
     }
 
 
@@ -326,7 +326,12 @@ public class RubroNegra {
     }
 
 
-    public void Setkey(object key) {
+    public string GetColor() {
+        return color;
+    }
+
+
+    public void SetKey(object key) {
         this.key = key;
     } 
 
@@ -343,6 +348,11 @@ public class RubroNegra {
 
     public void SetRightChild(Node rc) {
         this.rightChild = rc;
+    }
+
+
+    public void SetColor(string color) {
+        this.color = color;
     }
 
 }
