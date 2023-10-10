@@ -10,7 +10,7 @@ public class RubroNegra {
     public RubroNegra(object key) {
         this.root = new Node(null, key);
         this.length++;
-        root.SetColor("black");
+        root.SetColor("B");
     }
 
 
@@ -68,13 +68,13 @@ public class RubroNegra {
 
     //Método de pesquisa
     private Node SearchInt(Node node, object key) {
-        if ((int)key < (int)node.Getkey()) {
+        if ((int)key < (int)node.GetKey()) {
             if (IsLeft(node)) {
                 return node;
             } else {
                 return SearchInt(node.GetLeftChild(), key);
             }
-        } else if((int)key > (int)node.Getkey()) {
+        } else if((int)key > (int)node.GetKey()) {
             if (IsRight(node)) {
                 return node;
             } else {
@@ -86,15 +86,39 @@ public class RubroNegra {
     }
 
 
+    private Node GetAunt(Node node) {
+        if (IsLeftChild(node)) {
+            return node.GetDad().GetDad().GetRightChild();
+        } else { 
+            return node.GetDad().GetDad().GetLeftChild();
+        }
+    }
+
+
     //Método de inserção
     public Node Insert(object key) {
         Node dad = SearchInt(root, key);
         Node newNode = new Node(dad, key);
+        Node aunt;
 
-        if((int)key < (int)dad.Getkey()) {
+        if((int)key < (int)dad.GetKey()) {
             dad.SetLeftChild(newNode);
         } else {
             dad.SetRightChild(newNode);
+        }
+
+        //Mudanças de cores
+
+        // Caso 2 pai rubro, avó negro, tio rubro
+        if (!IsRoot(newNode.GetDad()) && newNode.GetDad().GetColor() == "R") {
+            // while (newNode().getDad().GetDad().GetDad().GetColor() != "B") {
+                aunt = GetAunt(newNode);
+                if (aunt.GetColor() == "R") {
+                    newNode.GetDad().SetColor("B");
+                    aunt.SetColor("B");
+                    aunt.GetDad().SetColor("R");
+                }
+            // }
         }
 
         this.length++;
@@ -137,21 +161,25 @@ public class RubroNegra {
 
     //Método mostrar árvore 
     public void ShowTree() {
-        object[,] matriz = new object[Height(root)+1, length];
+        // object[,] matriz = new object[Height(root)+1, length];
+        Node[,] matriz = new Node[Height(root)+1, length];
         showTree = new ArrayList();
         ShowTreeConstruction(root);
 
         for (int i = 0; i < length; i++) {
-            object obj = ((Node)showTree[i]).Getkey();
-            matriz[Depth((Node)showTree[i]), i] = obj;
+            // object obj = ((Node)showTree[i]).GetElem();
+            Node no = ((Node)showTree[i]);
+            // matriz[Depth((Node)showTree[i]), i] = obj;
+            matriz[Depth((Node)showTree[i]), i] = no;
+
         }
 
         for (int i = 0; i < Height(root)+1; i++) {
             for (int j = 0; j < length; j++) {
                 if (matriz[i, j] == null) {
-                    Console.Write(" ");
+                    Console.Write("     ");
                 } else {
-                    Console.Write(matriz[i,j]);
+                    Console.Write($"{matriz[i,j].GetKey()}[{matriz[i,j].GetColor()}]");
                 }
 
                 if (j == length - 1) {
@@ -196,7 +224,7 @@ public class RubroNegra {
             }
         } 
 
-        showTree.Add(node.Getkey());
+        showTree.Add(node.GetKey());
 
         if(IsInternal(node)) {
             if(!IsRight(node)) {
@@ -207,7 +235,7 @@ public class RubroNegra {
 
 
     private void PreOrder(Node node) {
-        showTree.Add(node.Getkey());
+        showTree.Add(node.GetKey());
 
         if(IsInternal(node)) {
             if(!IsLeft(node)) {
@@ -236,7 +264,7 @@ public class RubroNegra {
             }
         }
 
-        showTree.Add(node.Getkey());
+        showTree.Add(node.GetKey());
     }
 
 
@@ -297,7 +325,7 @@ public class RubroNegra {
     private Node leftChild = null;
     private Node rightChild = null;
     private object key;
-    private string color = "red";
+    private string color = "R";
 
 
     public Node(Node dad, object key) {
@@ -306,7 +334,7 @@ public class RubroNegra {
     }
 
 
-    public object Getkey() {
+    public object GetKey() {
         return key;
     }
 
