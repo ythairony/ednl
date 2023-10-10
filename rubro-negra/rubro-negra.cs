@@ -108,18 +108,28 @@ public class RubroNegra {
         }
 
         //Mudanças de cores
+        // Caso 1 
+        if (newNode.GetDad().GetColor() == "B") {
+            newNode.SetColor("R");
+        }
+
+        // Caso 2
+
+        // else if (newNode.GetDad().GetColor() == "R") {
+
+        // }
 
         // Caso 2 pai rubro, avó negro, tio rubro
-        if (!IsRoot(newNode.GetDad()) && newNode.GetDad().GetColor() == "R") {
-            // while (newNode().getDad().GetDad().GetDad().GetColor() != "B") {
-                aunt = GetAunt(newNode);
-                if (aunt.GetColor() == "R") {
-                    newNode.GetDad().SetColor("B");
-                    aunt.SetColor("B");
-                    aunt.GetDad().SetColor("R");
-                }
-            // }
-        }
+        // if (!IsRoot(newNode.GetDad()) && newNode.GetDad().GetColor() == "R") {
+        //     // while (newNode().getDad().GetDad().GetDad().GetColor() != "B") {
+        //         aunt = GetAunt(newNode);
+        //         if (aunt.GetColor() == "R") {
+        //             newNode.GetDad().SetColor("B");
+        //             aunt.SetColor("B");
+        //             aunt.GetDad().SetColor("R");
+        //         }
+        //     // }
+        // }
 
         this.length++;
         return newNode;
@@ -325,7 +335,7 @@ public class RubroNegra {
     private Node leftChild = null;
     private Node rightChild = null;
     private object key;
-    private string color = "R";
+    private string color;
 
 
     public Node(Node dad, object key) {

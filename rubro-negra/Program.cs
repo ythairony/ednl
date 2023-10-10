@@ -6,7 +6,7 @@ class Program {
 
         Node no1 = rn.Insert(13);
         Node no3 = rn.Insert(15);
-        // Node no2 = rn.Insert(5);
+        Node no2 = rn.Insert(5);
         // Node no4 = rn.Insert(2);
         rn.ShowTree();
     }
