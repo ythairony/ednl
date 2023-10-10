@@ -114,22 +114,17 @@ public class RubroNegra {
         }
 
         // Caso 2
-
-        // else if (newNode.GetDad().GetColor() == "R") {
-
-        // }
-
-        // Caso 2 pai rubro, avó negro, tio rubro
-        // if (!IsRoot(newNode.GetDad()) && newNode.GetDad().GetColor() == "R") {
-        //     // while (newNode().getDad().GetDad().GetDad().GetColor() != "B") {
-        //         aunt = GetAunt(newNode);
-        //         if (aunt.GetColor() == "R") {
-        //             newNode.GetDad().SetColor("B");
-        //             aunt.SetColor("B");
-        //             aunt.GetDad().SetColor("R");
-        //         }
-        //     // }
-        // }
+        else if (newNode.GetDad().GetColor() == "R") {
+            aunt = GetAunt(newNode);
+            if (!IsRoot(newNode.GetDad().GetDad())) { // Se o avó do novo nó não for o Raiz, ele se torna rubro
+                newNode.GetDad().GetDad().SetColor("R");
+            }
+            newNode.SetColor("R");
+            newNode.GetDad().SetColor("B");
+            if (aunt != null) {
+                aunt.SetColor("B");
+            }
+        }
 
         this.length++;
         return newNode;
@@ -335,7 +330,7 @@ public class RubroNegra {
     private Node leftChild = null;
     private Node rightChild = null;
     private object key;
-    private string color;
+    private string color = "R";
 
 
     public Node(Node dad, object key) {
