@@ -113,22 +113,84 @@ public class RubroNegra {
             newNode.SetColor("R");
         }
 
-        // Caso 2
         else if (newNode.GetDad().GetColor() == "R") {
             aunt = GetAunt(newNode);
-            if (!IsRoot(newNode.GetDad().GetDad())) { // Se o avó do novo nó não for o Raiz, ele se torna rubro
-                newNode.GetDad().GetDad().SetColor("R");
-            }
-            newNode.SetColor("R");
-            newNode.GetDad().SetColor("B");
-            if (aunt != null) {
+            
+            // Caso 2
+            if (aunt != null ) {
+                if (!IsRoot(newNode.GetDad().GetDad())) { // Se o avó do novo nó não for o Raiz, ele se torna rubro
+                    newNode.GetDad().GetDad().SetColor("R");
+                }
+                newNode.SetColor("R");
+                newNode.GetDad().SetColor("B");
                 aunt.SetColor("B");
+            } 
+            
+            // Caso 3
+            else {
+                //Caso 3a
+                if (IsRightChild(newNode)) {
+                    SimplesLeftRotation(newNode);
+                    newNode.SetColor("R");
+                    newNode.GetDad().SetColor("B");
+                    newNode.GetDad().GetLeftChild().SetColor("R");
+                }
+
+                //Caso 3b
+
+
+                //Caso 3c
+
+
+                //Caso 3d
+
             }
+
         }
 
         this.length++;
         return newNode;
     }
+
+
+    private void SimplesLeftRotation(Node node) {
+        Node newBrother = node.GetDad().GetDad(); // avo
+        node.GetDad().SetLeftChild(newBrother); // pai do no setta FE como avo
+        if (!IsRoot(newBrother)) {
+            node.GetDad().SetDad(newBrother.GetDad()); // pai do no setta pai como pai do avo
+            newBrother.GetDad().SetRightChild(node.GetDad()); // avo setta FD do pai como seu antigo filho
+        } else {
+            this.root = node.GetDad();
+            node.GetDad().SetDad(null); // pai do no setta pai como pai do avo
+        }
+        newBrother.SetDad(node.GetDad()); // avo setta pai como seu antigo filho
+        newBrother.SetRightChild(null);    
+
+
+        // node.SetRightChild(newBrother.GetLeftChild()); // como o filho direito de newBrother
+        // newBrother.SetDad(node.GetDad()); // como pai do no
+        // newBrother.SetLeftChild(node);
+        // node.SetDad(newBrother);
+        // // node.SetFb(node.GetFb() + 1 - Math.Min(newBrother.GetFb(), 0));
+        // // newBrother.SetFb(newBrother.GetFb() + 1 + Math.Max(node.GetFb(), 0));
+        // // node.SetFb(0);
+
+        // // erro tá por aqui
+        // if (newBrother.GetDad() != null && newBrother.GetRightChild() != null) {
+        //     newBrother.GetDad().SetRightChild(newBrother);
+        // } else if (newBrother.GetDad() != null) {
+        //     newBrother.GetDad().SetLeftChild(newBrother);
+        // }
+
+        // if (node.GetRightChild() != null) {
+        //     node.GetRightChild().SetDad(node);
+        // }
+
+        // if (IsRoot(node)) {
+        //     this.root = newBrother;
+        //     node = newBrother;
+        // }
+    }    
 
 
     //Método de remoção
