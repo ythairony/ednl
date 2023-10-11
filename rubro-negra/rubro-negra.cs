@@ -87,7 +87,7 @@ public class RubroNegra {
 
 
     private Node GetAunt(Node node) {
-        if (IsLeftChild(node)) {
+        if (IsLeftChild(node.GetDad())) {
             return node.GetDad().GetDad().GetRightChild();
         } else { 
             return node.GetDad().GetDad().GetLeftChild();
@@ -117,7 +117,7 @@ public class RubroNegra {
             aunt = GetAunt(newNode);
             
             // Caso 2
-            if (aunt != null ) {
+            if (aunt != null && aunt.GetColor() == "R" ) {
                 if (!IsRoot(newNode.GetDad().GetDad())) { // Se o avó do novo nó não for o Raiz, ele se torna rubro
                     newNode.GetDad().GetDad().SetColor("R");
                 }
@@ -137,7 +137,7 @@ public class RubroNegra {
                 }
 
                 //Caso 3b RSD
-                if (IsLeftChild(newNode) && IsLeftChild(newNode.GetDad())) {
+                else if (IsLeftChild(newNode) && IsLeftChild(newNode.GetDad())) {
                     SimplesRightRotation(newNode);
                     newNode.SetColor("R");
                     newNode.GetDad().SetColor("B");
@@ -146,12 +146,16 @@ public class RubroNegra {
 
                 //Caso 3c RDE 
                 // Erro aqui, não entra nesse caso pq para no caso 2
-                if (IsLeftChild(newNode) && IsRightChild(newNode.GetDad())) {
+                else if (IsLeftChild(newNode) && IsRightChild(newNode.GetDad())) {
                     DoubleLeftRotation(newNode);
                 }
 
 
                 //Caso 3d
+                if (IsRightChild(newNode) && IsLeftChild(newNode.GetDad())) {
+                    DoubleRightRotation(newNode);
+                }
+
 
             }
 
@@ -223,7 +227,15 @@ public class RubroNegra {
     private void DoubleLeftRotation(Node node) {
         SimplesRightRotation(node); 
 
-        SimplesLeftRotation(node.GetDad());
+        SimplesLeftRotation(node.GetRightChild());
+    }
+
+
+    //RDD
+    private void DoubleRightRotation(Node node) {
+        SimplesLeftRotation(node);
+
+        SimplesRightRotation(node.GetLeftChild());
     }
 
 
