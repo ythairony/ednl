@@ -152,7 +152,7 @@ public class RubroNegra {
 
 
                 //Caso 3d
-                if (IsRightChild(newNode) && IsLeftChild(newNode.GetDad())) {
+                else if (IsRightChild(newNode) && IsLeftChild(newNode.GetDad())) {
                     DoubleRightRotation(newNode);
                 }
 
@@ -215,7 +215,8 @@ public class RubroNegra {
             node.GetDad().SetDad(newBrother.GetDad()); // pai do no setta pai como pai do avo
             newBrother.GetDad().SetLeftChild(node.GetDad()); // avo setta FD do pai como seu antigo filho
         } else {
-            this.root = node.GetDad();
+            
+            
             node.GetDad().SetDad(null); // pai do no setta pai como pai do avo
         }
         newBrother.SetDad(node.GetDad()); // avo setta pai como seu antigo filho

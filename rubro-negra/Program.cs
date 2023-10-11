@@ -13,16 +13,16 @@ class Program {
         
 
         // Testes dinâmicos
-        Console.WriteLine($"O raiz é {rn.Root().GetKey()}");
-        int n;
-        while (true) { 
-            Console.Write("Insira um valor: ");
-            n = int.Parse(Console.ReadLine());
-            if (n == 0) { break; }
-            rn.Insert(n);
-            rn.ShowTree();
-            Console.WriteLine();
-        }
+        // Console.WriteLine($"O raiz é {rn.Root().GetKey()}");
+        // int n;
+        // while (true) { 
+        //     Console.Write("Insira um valor: ");
+        //     n = int.Parse(Console.ReadLine());
+        //     if (n == 0) { break; }
+        //     rn.Insert(n);
+        //     rn.ShowTree();
+        //     Console.WriteLine();
+        // }
 
         rn.ShowTree();
     }
