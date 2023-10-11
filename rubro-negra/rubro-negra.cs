@@ -137,7 +137,12 @@ public class RubroNegra {
                 }
 
                 //Caso 3b
-
+                if (IsLeftChild(newNode)) {
+                    SimplesRightRotation(newNode);
+                    newNode.SetColor("R");
+                    newNode.GetDad().SetColor("B");
+                    newNode.GetDad().GetRightChild().SetColor("R");
+                }
 
                 //Caso 3c
 
@@ -153,6 +158,7 @@ public class RubroNegra {
     }
 
 
+    //RSE
     private void SimplesLeftRotation(Node node) {
         Node newBrother = node.GetDad().GetDad(); // avo
         node.GetDad().SetLeftChild(newBrother); // pai do no setta FE como avo
@@ -190,7 +196,24 @@ public class RubroNegra {
         //     this.root = newBrother;
         //     node = newBrother;
         // }
-    }    
+    }
+
+
+    //RSD
+    private void SimplesRightRotation(Node node) {
+        Node newBrother = node.GetDad().GetDad(); // avo
+        node.GetDad().SetRightChild(newBrother); // pai do no setta FE como avo
+        if (!IsRoot(newBrother)) {
+            node.GetDad().SetDad(newBrother.GetDad()); // pai do no setta pai como pai do avo
+            newBrother.GetDad().SetLeftChild(node.GetDad()); // avo setta FD do pai como seu antigo filho
+        } else {
+            this.root = node.GetDad();
+            node.GetDad().SetDad(null); // pai do no setta pai como pai do avo
+        }
+        newBrother.SetDad(node.GetDad()); // avo setta pai como seu antigo filho
+        newBrother.SetLeftChild(null);     
+    }
+
 
 
     //Método de remoção
