@@ -128,23 +128,27 @@ public class RubroNegra {
             
             // Caso 3
             else {
-                //Caso 3a
-                if (IsRightChild(newNode)) {
+                //Caso 3a RSE
+                if (IsRightChild(newNode) && IsRightChild(newNode.GetDad())) {
                     SimplesLeftRotation(newNode);
                     newNode.SetColor("R");
                     newNode.GetDad().SetColor("B");
                     newNode.GetDad().GetLeftChild().SetColor("R");
                 }
 
-                //Caso 3b
-                if (IsLeftChild(newNode)) {
+                //Caso 3b RSD
+                if (IsLeftChild(newNode) && IsLeftChild(newNode.GetDad())) {
                     SimplesRightRotation(newNode);
                     newNode.SetColor("R");
                     newNode.GetDad().SetColor("B");
                     newNode.GetDad().GetRightChild().SetColor("R");
                 }
 
-                //Caso 3c
+                //Caso 3c RDE 
+                // Erro aqui, não entra nesse caso pq para no caso 2
+                if (IsLeftChild(newNode) && IsRightChild(newNode.GetDad())) {
+                    DoubleLeftRotation(newNode);
+                }
 
 
                 //Caso 3d
@@ -212,6 +216,14 @@ public class RubroNegra {
         }
         newBrother.SetDad(node.GetDad()); // avo setta pai como seu antigo filho
         newBrother.SetLeftChild(null);     
+    }
+
+
+    //RDE
+    private void DoubleLeftRotation(Node node) {
+        SimplesRightRotation(node); 
+
+        SimplesLeftRotation(node.GetDad());
     }
 
 
