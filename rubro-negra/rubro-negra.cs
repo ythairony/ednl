@@ -165,7 +165,7 @@ public class RubroNegra {
         return newNode;
     }
 
-
+    // Tenho que passar o avó no parâmetro
     //RSE
     private void SimplesLeftRotation(Node node) {
         Node newBrother = node.GetDad().GetDad(); // avo
