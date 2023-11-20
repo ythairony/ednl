@@ -78,7 +78,49 @@ public class Grafo {
 
 
 public class Vertice {
-    private Vertice vertice;
-    private object aresta;
+    private object vertice;
+    private ArrayList arestas; // Decidir na hora da implementação 
     
+    public Vertice(object vertice, object aresta) {
+        this.vertice = vertice;
+        this.aresta = aresta;
+    }
+
+
+    public object GetVertice() {
+        return vertice;
+    }
+
+    
+    public object GetAresta() {
+        return aresta;
+    }
+}
+
+
+public class Aresta {
+    private object vertice_saida;
+    private object vertice_destino;
+    private object aresta;
+
+    public Aresta(object aresta, object v_saida, object v_destino) {
+        this.aresta = aresta;
+        this.vertice_saida = v_saida;
+        this.vertice_destino = v_destino;
+    }
+
+
+    public object GetAresta() {
+        return aresta;
+    }
+
+
+    public object GetVerticeSaida() {
+        return vertice_saida;
+    }
+
+
+    public object GetVerticeDestino() {
+        return vertice_destino;
+    }
 }
