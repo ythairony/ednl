@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\bin\Debug\net7.0\grafo.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\bin\Debug\net7.0\grafo.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\bin\Debug\net7.0\grafo.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\bin\Debug\net7.0\grafo.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\bin\Debug\net7.0\grafo.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\refint\grafo.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\grafo.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\grafo\obj\Debug\net7.0\ref\grafo.dll

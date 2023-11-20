@@ -1,20 +1,34 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 public class Grafo {
-    private ArrayList vertices;
-    private ArrayList arestas;
+    private List<Vertice> vertices;
+    private List<Aresta> arestas;
+    private int QntVertices = 0;
+    private int QntArestas = 0;
 
 
-    public Vertice FinalVertices(object a) {
-        // retorna um array com os vértices de cada lá 
+    public Grafo() {
+        vertices = new List<Vertice>();
+        arestas = new List<Aresta>();
+    }
+
+    public List<Vertice> FinalVertices(object a) {
+        // retorna um array com os vértices de cada lá
+        return vertices; 
     }
 
 
     public Vertice Oposto(Vertice v, object a) {
-        // retorna ou outro vértice 
+        // retorna ou outro vértice
+        return v; // é outro vertice 
     }
 
 
     public bool EAdjacente (Vertice v, Vertice w) {
         // retorna true ou false se eles são vizinhos
+        return true;
     }
 
 
@@ -30,60 +44,67 @@ public class Grafo {
 
 
     // INSERÇÃO 
-    public object InserirVertice(object a) {
-        // Insere e retorna o elemento armazenando o valor de a
+    public object InserirVertice(object v) {
+        Vertice vertice = new Vertice(v, null);
+        vertices.Add(vertice);
+        this.QntVertices++;
+        return vertices;
     } 
 
 
-    public Vertice InserirAresta(Vertice v, Vertice w, object a) {
-        // Insere e retorna uma nova aresta com os vertices v e w
-    }
+    // public Vertice InserirAresta(Vertice v, Vertice w, object a) {
+    //     // Insere e retorna uma nova aresta com os vertices v e w
+    //     return vertices;
+    // }
 
 
     public object RemoverVertice(Vertice v) {
         // Remove e retorna o elemento do vértice
+        return v.GetVertice();
     }
 
 
     public object RemoverAresta(object a) {
-        // remove a aresta e retorna o elemento 
+        // remove a aresta e retorna o elemento
+        return a; 
     }
 
 
     public object ArestasIncidentes(Vertice v) {
         // retorna um array com todas as arestas incidentes no vértice
+        return v.GetVertice();
     }
 
 
-    public Vertice Vertices() {
-        // retorna todos os vértices no grafo.
+    public List<Vertice> Vertices() {
+        return vertices;
     }
 
 
-    public object Arestas() {
-        // retorna todas as arestas no grafo
+    public List<Aresta> Arestas() {
+        return arestas;
     }
 
 
     //DIRIGIDO 
-    public bool EDirecionado(object a) {
-        // testa se a aresta é direcionada
-    }
+    // public bool EDirecionado(object a) {
+    //     // testa se a aresta é direcionada
+    // }
 
 
-    public Vertice InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
-        // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final 
-    }
+    // public Vertice InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
+    //     // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final 
+    // }
 }
 
 
 public class Vertice {
     private object vertice;
-    private ArrayList arestas; // Decidir na hora da implementação 
+    private List<Aresta> arestas; // Decidir na hora da implementação 
     
     public Vertice(object vertice, object aresta) {
         this.vertice = vertice;
-        this.aresta = aresta;
+        this.arestas = new List<Aresta>();
     }
 
 
@@ -92,21 +113,21 @@ public class Vertice {
     }
 
     
-    public object GetAresta() {
-        return aresta;
+    public List<Aresta> GetArestas() {
+        return arestas;
     }
 }
 
 
 public class Aresta {
-    private object vertice_saida;
-    private object vertice_destino;
+    private object VerticeOrigem;
+    private object VerticeDestino;
     private object aresta;
 
-    public Aresta(object aresta, object v_saida, object v_destino) {
+    public Aresta(object aresta, object vOrigem, object vDestino) {
         this.aresta = aresta;
-        this.vertice_saida = v_saida;
-        this.vertice_destino = v_destino;
+        this.VerticeOrigem = vOrigem;
+        this.VerticeDestino = vDestino;
     }
 
 
@@ -116,11 +137,11 @@ public class Aresta {
 
 
     public object GetVerticeSaida() {
-        return vertice_saida;
+        return VerticeOrigem;
     }
 
 
     public object GetVerticeDestino() {
-        return vertice_destino;
+        return VerticeDestino;
     }
 }
