@@ -14,8 +14,10 @@ public class Program {
         Aresta a2 = grafo.InserirAresta(v2, v3, "A2");
         grafo.SubstituirAresta(a1, "Novo A1");
         
+        // Console.WriteLine(grafo.RemoverVertice(v2));
+        Console.WriteLine(grafo.RemoverAresta(a2));
         
-        // Printando os vértices
+        // // Printando os vértices
         // Console.WriteLine("Lista de Vértices");
         // foreach(Vertice v in grafo.Vertices()) {
         //     Console.WriteLine(v.GetVertice());
@@ -24,19 +26,20 @@ public class Program {
 
         // Console.WriteLine();
         // Console.WriteLine();
-        // // Pritando as arestas
-        // Console.WriteLine("Lista de Arestas");
-        // foreach(Aresta a in grafo.Arestas()) {
-        //     Console.WriteLine(a.ToString());
-        // }
+        // Pritando as arestas
+        Console.WriteLine("Lista de Arestas");
+        foreach(Aresta a in grafo.Arestas()) {
+            Console.WriteLine(a.ToString());
+        }
 
         // Console.WriteLine(grafo.Oposto(v1, a1));
         // Console.WriteLine(grafo.EAdjacente(v1, v3));
 
-        // Printando Arestas Incidentes
-        Console.WriteLine("Arestas incidentes em [v2]"); 
-        foreach(Aresta a in grafo.ArestasIncidentes(v2)) {
-            Console.WriteLine(a.GetAresta());
-        }
+        // // Printando Arestas Incidentes
+        // Console.WriteLine("Arestas incidentes em [v2]"); 
+        // foreach(Aresta a in grafo.ArestasIncidentes(v2)) {
+        //     Console.WriteLine(a.GetAresta());
+        // }
+
     }
 }

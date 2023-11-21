@@ -26,9 +26,9 @@ public class Grafo {
         Vertice oposto = null;
         foreach(Aresta a in arestas) {
             if (a.GetVerticeOrigem().Equals(vertice) && a.GetAresta().Equals(aresta.GetAresta())) {
-                oposto = new Vertice(a.GetverticeDestino());
+                oposto = new Vertice(a.GetVerticeDestino());
                 break;
-            } else if (a.GetverticeDestino().Equals(vertice) && a.GetAresta().Equals(aresta.GetAresta())) {
+            } else if (a.GetVerticeDestino().Equals(vertice) && a.GetAresta().Equals(aresta.GetAresta())) {
                 oposto = new Vertice(a.GetVerticeOrigem());
                 break;
             }
@@ -45,8 +45,8 @@ public class Grafo {
     public bool EAdjacente (Vertice v, Vertice w) { //OK
         // retorna true ou false se eles são vizinhos
         foreach(Aresta a in arestas) {
-            if (a.GetVerticeOrigem().Equals(v) && a.GetverticeDestino().Equals(w)
-             || a.GetVerticeOrigem().Equals(w) && a.GetverticeDestino().Equals(v)
+            if (a.GetVerticeOrigem().Equals(v) && a.GetVerticeDestino().Equals(w)
+             || a.GetVerticeOrigem().Equals(w) && a.GetVerticeDestino().Equals(v)
             ) {
                 return true;
             }
@@ -90,13 +90,27 @@ public class Grafo {
 
     public object RemoverVertice(Vertice v) {
         // Remove e retorna o elemento do vértice
+        vertices.Remove(v);
+
+        foreach (Aresta a in arestas.ToList()) {
+            if (a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
+            arestas.Remove(a);
+            }
+        }
+
         return v.GetVertice();
     }
 
 
-    public object RemoverAresta(object a) {
+    public object RemoverAresta(Aresta a) { // PARCIALMENTE FINALIZADO
         // remove a aresta e retorna o elemento
-        return a; 
+        arestas.Remove(a);
+
+        // PRECISO REMORAR A ARESTA DOS VÉRTICES
+        // a.GetVerticeOrigem().GetArestas().Remove(a);
+        // a.GetVerticeDestino().GetArestas().Remove(a);
+
+        return a.GetAresta(); 
     }
 
 
@@ -130,7 +144,7 @@ public class Grafo {
 
 public class Vertice {
     private object vertice;
-    private List<Aresta> arestas; // Decidir na hora da implementação 
+    private List<Aresta> arestas; 
     
     public Vertice(object vertice) {
         this.vertice = vertice;
@@ -186,7 +200,7 @@ public class Aresta {
     }
 
 
-    public object GetverticeDestino() {
+    public object GetVerticeDestino() {
         return verticeDestino;
     }
 
