@@ -56,13 +56,15 @@ public class Grafo {
 
 
     // SUBSTITUIR
-    public void SubstituirVertice(Vertice v, Vertice new_v) {
+    public void SubstituirVertice(Vertice v, object new_v) { //OK
         // Substitui um vértice por um novo 
+        v.SetVertice(new_v);
     }
 
 
-    public void SubstituirAresta(object a, object new_a) {
+    public void SubstituirAresta(Aresta a, object new_a) { //OK
         // Substitui um aresta por um novo
+        a.SetAresta(new_a);
     }
 
 
@@ -145,6 +147,11 @@ public class Vertice {
         return arestas;
     }
 
+
+    public void SetVertice(object v) {
+        this.vertice = v;
+    }
+
     
     public void SetAresta(Aresta a){
         arestas.Add(a);
@@ -181,6 +188,11 @@ public class Aresta {
 
     public object GetverticeDestino() {
         return verticeDestino;
+    }
+
+
+    public void SetAresta(object a) {
+        this.aresta = a;
     }
 
 
