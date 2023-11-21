@@ -16,21 +16,27 @@ public class Program {
         
         
         // Printando os vértices
-        Console.WriteLine("Lista de Vértices");
-        foreach(Vertice v in grafo.Vertices()) {
-            Console.WriteLine(v.GetVertice());
-        }
+        // Console.WriteLine("Lista de Vértices");
+        // foreach(Vertice v in grafo.Vertices()) {
+        //     Console.WriteLine(v.GetVertice());
+        // }
 
 
         // Console.WriteLine();
         // Console.WriteLine();
         // // Pritando as arestas
-        Console.WriteLine("Lista de Arestas");
-        foreach(Aresta a in grafo.Arestas()) {
-            Console.WriteLine(a.ToString());
-        }
+        // Console.WriteLine("Lista de Arestas");
+        // foreach(Aresta a in grafo.Arestas()) {
+        //     Console.WriteLine(a.ToString());
+        // }
 
         // Console.WriteLine(grafo.Oposto(v1, a1));
         // Console.WriteLine(grafo.EAdjacente(v1, v3));
+
+        // Printando Arestas Incidentes
+        Console.WriteLine("Arestas incidentes em [v2]"); 
+        foreach(Aresta a in grafo.ArestasIncidentes(v2)) {
+            Console.WriteLine(a.GetAresta());
+        }
     }
 }

@@ -100,9 +100,9 @@ public class Grafo {
     }
 
 
-    public object ArestasIncidentes(Vertice v) {
+    public List<Aresta> ArestasIncidentes(Vertice v) { //OK
         // retorna um array com todas as arestas incidentes no vértice
-        return v.GetVertice();
+        return v.GetArestas();
     }
 
 
