@@ -20,9 +20,24 @@ public class Grafo {
     }
 
 
-    public Vertice Oposto(Vertice v, object a) {
+    public object Oposto(Vertice vertice, Aresta aresta) { //OK mas precisa identificar a milacria do print
         // retorna ou outro vértice
-        return v; // é outro vertice 
+        Vertice oposto = null;
+        foreach(Aresta a in arestas) {
+            if (a.GetVerticeOrigem().Equals(vertice) && a.GetAresta().Equals(aresta.GetAresta())) {
+                oposto = new Vertice(a.GetverticeDestino());
+                break;
+            } else if (a.GetverticeDestino().Equals(vertice) && a.GetAresta().Equals(aresta.GetAresta())) {
+                oposto = new Vertice(a.GetVerticeOrigem());
+                break;
+            }
+        }
+
+        if (oposto != null) {
+            return oposto.ToString();
+        } else {
+            throw new InvalidOperationException("Não há vértice oposto"); 
+        }
     }
 
 
@@ -52,13 +67,14 @@ public class Grafo {
     } 
 
 
-    public void InserirAresta(Vertice v, Vertice w, object a) { //OK
+    public Aresta InserirAresta(Vertice v, Vertice w, object a) { //OK
         // Insere e retorna uma nova aresta com os vertices v e w
         Aresta aresta = new Aresta(a, v, w);
         v.SetAresta(aresta);
         w.SetAresta(aresta);
         arestas.Add(aresta);
         this.QntArestas++;
+        return aresta;
     }
 
 
@@ -85,7 +101,7 @@ public class Grafo {
     }
 
 
-    public List<Aresta> Arestas() {
+    public List<Aresta> Arestas() { //OK
         return arestas;
     }
 
@@ -125,6 +141,11 @@ public class Vertice {
     public void SetAresta(Aresta a){
         arestas.Add(a);
     }
+
+
+    public override string ToString() {
+        return $"{vertice}";
+    }
 }
 
 
@@ -145,7 +166,7 @@ public class Aresta {
     }
 
 
-    public object GetVerticeSaida() {
+    public object GetVerticeOrigem() {
         return verticeOrigem;
     }
 

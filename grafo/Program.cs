@@ -7,8 +7,10 @@ public class Program {
 
         Vertice v1 = grafo.InserirVertice("v1");
         Vertice v2 = grafo.InserirVertice("v2");
+        Vertice v3 = grafo.InserirVertice("v3");
 
-        grafo.InserirAresta(v1, v2, "A1");
+        Aresta a1 = grafo.InserirAresta(v1, v2, "A1");
+        Aresta a2 = grafo.InserirAresta(v2, v3, "A2");
         
         
         // Printando os vértices
@@ -25,5 +27,7 @@ public class Program {
         foreach(Aresta a in grafo.Arestas()) {
             Console.WriteLine(a.ToString());
         }
+
+        // Console.WriteLine(grafo.Oposto(v1, a1));
     }
 }
