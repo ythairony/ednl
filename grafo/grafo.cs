@@ -14,8 +14,9 @@ public class Grafo {
         arestas = new List<Aresta>();
     }
 
-    public List<Vertice> FinalVertices(object a) {
+    public List<Vertice> FinalVertices(Aresta a) {
         // retorna um array com os vértices de cada lá
+        // Não entendi...
         return vertices; 
     }
 
@@ -41,9 +42,16 @@ public class Grafo {
     }
 
 
-    public bool EAdjacente (Vertice v, Vertice w) {
+    public bool EAdjacente (Vertice v, Vertice w) { //OK
         // retorna true ou false se eles são vizinhos
-        return true;
+        foreach(Aresta a in arestas) {
+            if (a.GetVerticeOrigem().Equals(v) && a.GetverticeDestino().Equals(w)
+             || a.GetVerticeOrigem().Equals(w) && a.GetverticeDestino().Equals(v)
+            ) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
