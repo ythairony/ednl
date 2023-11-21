@@ -136,9 +136,14 @@ public class Grafo {
     // }
 
 
-    // public Vertice InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
-    //     // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final 
-    // }
+    public Aresta InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
+        // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final
+        Aresta aresta = new Aresta(a, v_inicial, v_final);
+        v_inicial.SetAresta(aresta);
+        arestas.Add(aresta);
+        this.QntArestas++;
+        return aresta; 
+    }
 }
 
 

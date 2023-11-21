@@ -8,14 +8,16 @@ public class Program {
         Vertice v1 = grafo.InserirVertice("v1");
         Vertice v2 = grafo.InserirVertice("v2");
         Vertice v3 = grafo.InserirVertice("v3");
+        Vertice vd1 = grafo.InserirVertice("vd1");
         grafo.SubstituirVertice(v1, "Novo v1");
 
         Aresta a1 = grafo.InserirAresta(v1, v2, "A1");
         Aresta a2 = grafo.InserirAresta(v2, v3, "A2");
+        Aresta ad1 = grafo.InserirArestaDirecionada(vd1, v1, "Direcional");
         grafo.SubstituirAresta(a1, "Novo A1");
         
         // Console.WriteLine(grafo.RemoverVertice(v2));
-        Console.WriteLine(grafo.RemoverAresta(a2));
+        // Console.WriteLine(grafo.RemoverAresta(a2));
         
         // // Printando os vértices
         // Console.WriteLine("Lista de Vértices");
