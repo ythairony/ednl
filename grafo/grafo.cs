@@ -44,17 +44,21 @@ public class Grafo {
 
 
     // INSERÇÃO 
-    public object InserirVertice(object v) {
-        Vertice vertice = new Vertice(v, null);
+    public object InserirVertice(object v) { //OK
+        Vertice vertice = new Vertice(v);
         vertices.Add(vertice);
         this.QntVertices++;
         return vertices;
     } 
 
 
-    // public Vertice InserirAresta(Vertice v, Vertice w, object a) {
+    // public void InserirAresta(Vertice v, Vertice w, object a) {
     //     // Insere e retorna uma nova aresta com os vertices v e w
-    //     return vertices;
+    //     Aresta aresta = new Aresta(a, v, w);
+    //     v.SetAresta(a);
+    //     w.SetAresta(a);
+    //     arestas.Add(aresta);
+    //     this.QntArestas++;
     // }
 
 
@@ -76,7 +80,7 @@ public class Grafo {
     }
 
 
-    public List<Vertice> Vertices() {
+    public List<Vertice> Vertices() { //OK 
         return vertices;
     }
 
@@ -102,7 +106,7 @@ public class Vertice {
     private object vertice;
     private List<Aresta> arestas; // Decidir na hora da implementação 
     
-    public Vertice(object vertice, object aresta) {
+    public Vertice(object vertice) {
         this.vertice = vertice;
         this.arestas = new List<Aresta>();
     }
@@ -116,6 +120,11 @@ public class Vertice {
     public List<Aresta> GetArestas() {
         return arestas;
     }
+
+    
+    // public void SetAresta(object a){
+    //     arestas.Add(a);
+    // }
 }
 
 
