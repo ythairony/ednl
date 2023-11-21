@@ -44,22 +44,22 @@ public class Grafo {
 
 
     // INSERÇÃO 
-    public object InserirVertice(object v) { //OK
+    public Vertice InserirVertice(object v) { //OK
         Vertice vertice = new Vertice(v);
         vertices.Add(vertice);
         this.QntVertices++;
-        return vertices;
+        return vertice;
     } 
 
 
-    // public void InserirAresta(Vertice v, Vertice w, object a) {
-    //     // Insere e retorna uma nova aresta com os vertices v e w
-    //     Aresta aresta = new Aresta(a, v, w);
-    //     v.SetAresta(a);
-    //     w.SetAresta(a);
-    //     arestas.Add(aresta);
-    //     this.QntArestas++;
-    // }
+    public void InserirAresta(Vertice v, Vertice w, object a) { //OK
+        // Insere e retorna uma nova aresta com os vertices v e w
+        Aresta aresta = new Aresta(a, v, w);
+        v.SetAresta(aresta);
+        w.SetAresta(aresta);
+        arestas.Add(aresta);
+        this.QntArestas++;
+    }
 
 
     public object RemoverVertice(Vertice v) {
@@ -122,21 +122,21 @@ public class Vertice {
     }
 
     
-    // public void SetAresta(object a){
-    //     arestas.Add(a);
-    // }
+    public void SetAresta(Aresta a){
+        arestas.Add(a);
+    }
 }
 
 
 public class Aresta {
-    private object VerticeOrigem;
-    private object VerticeDestino;
+    private Vertice verticeOrigem;
+    private Vertice verticeDestino;
     private object aresta;
 
-    public Aresta(object aresta, object vOrigem, object vDestino) {
+    public Aresta(object aresta, Vertice vOrigem, Vertice vDestino) {
         this.aresta = aresta;
-        this.VerticeOrigem = vOrigem;
-        this.VerticeDestino = vDestino;
+        this.verticeOrigem = vOrigem;
+        this.verticeDestino = vDestino;
     }
 
 
@@ -146,11 +146,16 @@ public class Aresta {
 
 
     public object GetVerticeSaida() {
-        return VerticeOrigem;
+        return verticeOrigem;
     }
 
 
-    public object GetVerticeDestino() {
-        return VerticeDestino;
+    public object GetverticeDestino() {
+        return verticeDestino;
+    }
+
+
+    public override string ToString() {
+        return $"A aresta [{aresta}] está conectada pelos vértices [{verticeOrigem.GetVertice()}] e [{verticeDestino.GetVertice()}]";
     }
 }
