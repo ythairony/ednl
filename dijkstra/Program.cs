@@ -17,8 +17,8 @@
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
 
-        Node start = new Node(4, 0);
-        Node goal = new Node(4, 5);
+        Node start = new Node(2, 1);
+        Node goal = new Node(5, 8);
 
         AStar aStar = new AStar(maze);
         List<Node> aStarPath = aStar.FindPath(start, goal);

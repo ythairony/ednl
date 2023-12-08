@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\bin\Debug\net7.0\dijkstra.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\bin\Debug\net7.0\dijkstra.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\bin\Debug\net7.0\dijkstra.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\bin\Debug\net7.0\dijkstra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\bin\Debug\net7.0\dijkstra.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\refint\dijkstra.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\dijkstra.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\dijkstra\obj\Debug\net7.0\ref\dijkstra.dll
