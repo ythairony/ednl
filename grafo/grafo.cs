@@ -101,18 +101,20 @@ public class Grafo {
 
 
 
-    // RESOLVER ESSE PROBLEMA AQUI
-    public void RemoverAresta(Aresta a) { // PARCIALMENTE FINALIZADO
+    // Aparentemente resolvido =D
+    public object RemoverAresta(Aresta a) { // OK
         // remove a aresta e retorna o elemento
         arestas.Remove(a); 
 
-        a.GetVerticeOrigem().RemoverAresta(a);
-        a.GetVerticeDestino().RemoverAresta(a);
-        // PRECISO REMOVER A ARESTA DOS VÉRTICES
+        Vertice vOrigem = (Vertice)a.GetVerticeOrigem();
+        Vertice vDestino = (Vertice)a.GetVerticeDestino();
 
+        vOrigem.GetArestas().Remove(a);
+        vDestino.GetArestas().Remove(a);
 
-        // return a.GetAresta(); 
+        return a.GetAresta(); 
     }
+
 
 
     public List<Aresta> ArestasIncidentes(Vertice v) { //OK
