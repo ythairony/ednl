@@ -14,10 +14,8 @@ public class Grafo {
         arestas = new List<Aresta>();
     }
 
-    public List<Vertice> FinalVertices(Aresta a) {
-        // retorna um array com os vértices de cada lá
-        // Não entendi...
-        return vertices; 
+    public string FinalVertices(Aresta a) {
+        return $"Os vértices da aresta {a.GetAresta()} são:\n{a.GetVerticeOrigem()}\n{a.GetVerticeDestino()}"; 
     }
 
 
@@ -94,23 +92,26 @@ public class Grafo {
 
         foreach (Aresta a in arestas.ToList()) {
             if (a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
-            arestas.Remove(a);
-            }
+                arestas.Remove(a);
+            } 
         }
 
         return v.GetVertice();
     }
 
 
-    public object RemoverAresta(Aresta a) { // PARCIALMENTE FINALIZADO
+
+    // RESOLVER ESSE PROBLEMA AQUI
+    public void RemoverAresta(Aresta a) { // PARCIALMENTE FINALIZADO
         // remove a aresta e retorna o elemento
-        arestas.Remove(a);
+        arestas.Remove(a); 
 
-        // PRECISO REMORAR A ARESTA DOS VÉRTICES
-        // a.GetVerticeOrigem().GetArestas().Remove(a);
-        // a.GetVerticeDestino().GetArestas().Remove(a);
+        a.GetVerticeOrigem().RemoverAresta(a);
+        a.GetVerticeDestino().RemoverAresta(a);
+        // PRECISO REMOVER A ARESTA DOS VÉRTICES
 
-        return a.GetAresta(); 
+
+        // return a.GetAresta(); 
     }
 
 
@@ -176,6 +177,10 @@ public class Vertice {
         arestas.Add(a);
     }
 
+
+    public void RemoverAresta(Aresta a) {
+        arestas.Remove(a);
+    }
 
     public override string ToString() {
         return $"{vertice}";
