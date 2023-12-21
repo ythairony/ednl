@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\bin\Debug\net7.0\carteiro-chines.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\bin\Debug\net7.0\carteiro-chines.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\bin\Debug\net7.0\carteiro-chines.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\bin\Debug\net7.0\carteiro-chines.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\bin\Debug\net7.0\carteiro-chines.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\refint\carteiro-chines.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\carteiro-chines.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\carteiro-chines\obj\Debug\net7.0\ref\carteiro-chines.dll
