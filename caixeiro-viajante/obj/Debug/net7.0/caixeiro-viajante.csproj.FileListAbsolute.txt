@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\bin\Debug\net7.0\caixeiro-viajante.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\bin\Debug\net7.0\caixeiro-viajante.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\bin\Debug\net7.0\caixeiro-viajante.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\bin\Debug\net7.0\caixeiro-viajante.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\bin\Debug\net7.0\caixeiro-viajante.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\refint\caixeiro-viajante.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\caixeiro-viajante.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\caixeiro-viajante\obj\Debug\net7.0\ref\caixeiro-viajante.dll
