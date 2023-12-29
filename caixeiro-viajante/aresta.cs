@@ -25,12 +25,12 @@ public class Aresta {
     }
 
 
-    public object GetVerticeOrigem() {
+    public Vertice GetVerticeOrigem() {
         return verticeOrigem;
     }
 
 
-    public object GetVerticeDestino() {
+    public Vertice GetVerticeDestino() {
         return verticeDestino;
     }
 

@@ -86,22 +86,21 @@ public class Grafo {
     }
 
 
-    public object RemoverVertice(Vertice v) {
+    public object RemoverVertice(Vertice v) { // Finalmente resolvido
         // Remove e retorna o elemento do vértice
         vertices.Remove(v);
 
-        // Lista para armazenar temporariamente as arestas a serem removidas
         List<Aresta> arestasARemover = new List<Aresta>();
 
-        foreach (Aresta a in arestas) {
-            if (a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
-                arestasARemover.Add(a);
-            }
+        foreach (Aresta a in v.GetArestas()) {
+            arestasARemover.Add(a);
+
+            Vertice verticeOposto = (v == a.GetVerticeOrigem()) ? a.GetVerticeDestino() : a.GetVerticeOrigem();
+            verticeOposto.RemoverAresta(a);
         }
 
-        // Remove as arestas da lista principal
-        foreach (Aresta a in arestasARemover) {
-            arestas.Remove(a);
+        foreach (Aresta aRemover in arestasARemover) {
+            arestas.Remove(aRemover);
         }
 
         return v.GetVertice();
@@ -110,7 +109,6 @@ public class Grafo {
 
 
 
-    // Aparentemente resolvido =D
     public object RemoverAresta(Aresta a) { // OK
         if (a == null) {
             throw new ArgumentNullException("Aresta não pode ser nula.");

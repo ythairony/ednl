@@ -86,14 +86,21 @@ public class Grafo {
     }
 
 
-    public object RemoverVertice(Vertice v) {
+    public object RemoverVertice(Vertice v) { // Finalmente resolvido
         // Remove e retorna o elemento do vértice
         vertices.Remove(v);
 
-        foreach (Aresta a in arestas.ToList()) {
-            if (a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
-                arestas.Remove(a);
-            } 
+        List<Aresta> arestasARemover = new List<Aresta>();
+
+        foreach (Aresta a in v.GetArestas()) {
+            arestasARemover.Add(a);
+
+            Vertice verticeOposto = (v == a.GetVerticeOrigem()) ? a.GetVerticeDestino() : a.GetVerticeOrigem();
+            verticeOposto.RemoverAresta(a);
+        }
+
+        foreach (Aresta aRemover in arestasARemover) {
+            arestas.Remove(aRemover);
         }
 
         return v.GetVertice();
@@ -101,8 +108,11 @@ public class Grafo {
 
 
 
-    // Aparentemente resolvido =D
+
     public object RemoverAresta(Aresta a) { // OK
+        if (a == null) {
+            throw new ArgumentNullException("Aresta não pode ser nula.");
+        }
         // remove a aresta e retorna o elemento
         arestas.Remove(a); 
 
@@ -111,6 +121,8 @@ public class Grafo {
 
         vOrigem.GetArestas().Remove(a);
         vDestino.GetArestas().Remove(a);
+
+        
 
         return a.GetAresta(); 
     }
@@ -146,42 +158,5 @@ public class Grafo {
         arestas.Add(aresta);
         this.QntArestas++;
         return aresta; 
-    }
-}
-
-
-    private Vertice verticeOrigem;
-    private Vertice verticeDestino;
-    private object aresta;
-
-    public Aresta(object aresta, Vertice vOrigem, Vertice vDestino) {
-        this.aresta = aresta;
-        this.verticeOrigem = vOrigem;
-        this.verticeDestino = vDestino;
-    }
-
-
-    public object GetAresta() {
-        return aresta;
-    }
-
-
-    public object GetVerticeOrigem() {
-        return verticeOrigem;
-    }
-
-
-    public object GetVerticeDestino() {
-        return verticeDestino;
-    }
-
-
-    public void SetAresta(object a) {
-        this.aresta = a;
-    }
-
-
-    public override string ToString() {
-        return $"A aresta [{aresta}] está conectada pelos vértices [{verticeOrigem.GetVertice()}] e [{verticeDestino.GetVertice()}]";
     }
 }
