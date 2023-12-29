@@ -16,7 +16,7 @@ public class Program {
         // Aresta ad1 = grafo.InserirArestaDirecionada(vd1, v1, "Direcional");
     //    grafo.SubstituirAresta(a1, "Novo A1");
         
-        // Console.WriteLine(grafo.RemoverVertice(v2));
+        Console.WriteLine(grafo.RemoverVertice(v2));
 
 
         // Console.WriteLine(grafo.RemoverAresta(a2)); // Deve ficar apenas a aresta A1
@@ -25,9 +25,9 @@ public class Program {
         
         // Console.WriteLine(grafo.FinalVertices(a1));
 
-        foreach (Aresta a in grafo.ArestasIncidentes(v2)) { // Deve ficar apenas a aresta A1
-            Console.WriteLine(a.ToString());
-        }
+        // foreach (Aresta a in grafo.ArestasIncidentes(v2)) { // Deve ficar apenas a aresta A1
+        //     Console.WriteLine(a.ToString());
+        // }
         
         // // Printando os vértices
         // Console.WriteLine("Lista de Vértices");
@@ -38,11 +38,11 @@ public class Program {
 
         Console.WriteLine();
         Console.WriteLine();
-        // // Pritando as arestas
-        // Console.WriteLine("Lista de Arestas");
-        // foreach(Aresta a in grafo.Arestas()) {
-        //     Console.WriteLine(a.ToString());
-        // }
+        // Pritando as arestas
+        Console.WriteLine("Lista de Arestas");
+        foreach(Aresta a in grafo.Arestas()) {
+            Console.WriteLine(a.ToString());
+        }
 
         // Console.WriteLine($"Arrestas de {v2.ToString()} são: {grafo.ArestasIncidentes(v2)}");
 
@@ -50,10 +50,10 @@ public class Program {
         // Console.WriteLine(grafo.EAdjacente(v1, v3));
 
         // Printando Arestas Incidentes
-        // Console.WriteLine("Arestas incidentes em [v2]"); 
-        // foreach(Aresta a in grafo.ArestasIncidentes(v2)) {
-        //     Console.WriteLine(a.GetAresta());
-        // }
+        Console.WriteLine("Arestas incidentes em [v2]"); 
+        foreach(Aresta a in grafo.ArestasIncidentes(v2)) {
+            Console.WriteLine(a.GetAresta());
+        }
 
     }
 }

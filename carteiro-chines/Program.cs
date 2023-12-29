@@ -13,6 +13,8 @@ public class Program {
         Aresta a1 = grafo.InserirAresta(v1, v2, "A1");
         Aresta a2 = grafo.InserirAresta(v2, v3, "A2");
 
-        Console.WriteLine(perdido.EConexo());
+        Console.WriteLine($"O carteiro achou o caminho conexo? {perdido.EConexo()}"); // True
+
+        // Grafo euleriano = perdido.ConstruirGrafoEuleriano(grafo.Arestas());
     }
 }

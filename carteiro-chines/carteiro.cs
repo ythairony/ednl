@@ -38,16 +38,11 @@ public class CarteiroChines {
 
     private List<Aresta> EncontrarEmparelhamentoPerfeitoMinimo() {
         // Implemente a lógica para encontrar um emparelhamento perfeito mínimo
-        // Pode-se usar algoritmos conhecidos como Blossom Algorithm.
 
-        // Aqui, por simplicidade, vou retornar todas as arestas do grafo,
-        // considerando que o grafo é completo e não ponderado.
         return grafo.Arestas();
     }
 
-    private Grafo ConstruirGrafoEuleriano(List<Aresta> emparelhamentoPerfeito) {
-        // Constrói um grafo Euleriano duplicando as arestas do emparelhamento perfeito
-        // e adicionando arestas adicionais para tornar o grafo Euleriano.
+    public Grafo ConstruirGrafoEuleriano(List<Aresta> emparelhamentoPerfeito) {
         Grafo grafoEuleriano = new Grafo();
 
         foreach (Aresta aresta in emparelhamentoPerfeito) {
@@ -60,7 +55,6 @@ public class CarteiroChines {
         }
 
         // Adiciona arestas adicionais para tornar o grafo Euleriano
-        // (Pode ser necessário ajustar esta lógica dependendo das propriedades do grafo original)
         foreach (Vertice v in grafo.Vertices()) {
             foreach (Aresta aresta in v.GetArestas()) {
                 if (!emparelhamentoPerfeito.Contains(aresta)) {
