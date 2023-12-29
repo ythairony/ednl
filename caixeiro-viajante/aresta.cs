@@ -9,6 +9,11 @@ public class Aresta {
     private int value = 0;
 
     public Aresta(object aresta, Vertice vOrigem, Vertice vDestino) {
+        // Verificação se alguns dos vértices são nulos
+        if (vOrigem == null || vDestino == null) {
+            throw new ArgumentNullException("Os vértices de origem e destino não podem ser nulos.");
+        }
+
         this.aresta = aresta;
         this.verticeOrigem = vOrigem;
         this.verticeDestino = vDestino;
