@@ -158,16 +158,69 @@ public class Grafo {
     }
 
 
+    public List<Aresta> Kruskal() {
+        List<Aresta> mst = new List<Aresta>();
+
+        List<Aresta> arestasOrdenadas = arestas.OrderBy(a => a.GetPeso()).ToList();
+
+        // Criando um conjunto para cada vértice utilizando a técnica do Union-Find
+        Dictionary<Vertice, HashSet<Vertice>> conjuntos = new Dictionary<Vertice, HashSet<Vertice>>();
+        foreach (Vertice v in vertices) {
+            conjuntos[v] = new HashSet<Vertice> { v };
+        }
+
+        // Adicionando arestas MST, evitando ciclos
+        foreach (Aresta a in arestasOrdenadas) {
+            Vertice origem = a.GetVerticeOrigem();
+            Vertice destino = a.GetVerticeDestino();
+
+            HashSet<Vertice> conjuntoOrigem = conjuntos[origem];
+            HashSet<Vertice> conjuntoDestino = conjuntos[destino];
+
+
+            if(!conjuntoOrigem.SetEquals(conjuntoDestino)) {
+                // Aresta não forma ciclo
+                mst.Add(a);
+
+                // Une os conjuntos dos vértices origem e destino
+                conjuntoOrigem.UnionWith(conjuntoDestino);
+
+                // Atualiza os conjuntos dos vértices afetados
+                foreach(Vertice v in conjuntoOrigem) {
+                    conjuntos[v] = conjuntoOrigem;
+                }
+
+                foreach(Vertice v in conjuntoDestino) {
+                    conjuntos[v] = conjuntoOrigem;
+                }
+            }
+        }
+
+        return mst;
+    }
+
+
+    public List<Vertice> EncontrarMenorCaminhoEureliano(Vertice vInicio) {
+        List<Aresta> arestasAGM = Kruskal();
+        return Fleury(arestasAGM, vInicio);
+    }
+
+    // Carteiro Chinês
+    public List<Vertice> EncontrarMenorCaminhoCarteiroChines(Vertice vInicio) {
+        List<Aresta> arestasAGM = Kruskal();
+        return EncontrarCaminhoEuleriano(vInicio);
+    }
+    
+
     // Fleury
     public List<Vertice> Fleury(List<Aresta> arestasAGM, Vertice verticeInicio) {
-        // Etapa 1: Inicialização
         List<Vertice> cicloEuleriano = new List<Vertice>();
         Grafo grafoDuplicado = CriarGrafoDuplicado(arestasAGM);
 
-        // Etapa 2: Encontrar o ciclo Euleriano
+        // Encontrar o ciclo Euleriano
         EncontrarCicloEuleriano(grafoDuplicado, verticeInicio, cicloEuleriano);
 
-        // Etapa 3: Eliminar vértices duplicados
+        // Remover vértices duplicados
         RemoverVerticesDuplicados(cicloEuleriano);
 
         return cicloEuleriano;
@@ -185,14 +238,21 @@ public class Grafo {
         return grafoDuplicado;
     }
 
-    // private Vertice EncontrarVerticeComGrauImpar(Grafo grafo) {
-    //     foreach (Vertice v in grafo.Vertices()) {
-    //         if (grafo.Grau(v) % 2 != 0) {
-    //             return v;
-    //         }
-    //     }
-    //     return null; // Isso não deveria acontecer em um grafo Euleriano
-    // }
+    private List<Vertice> EncontrarVerticesComGrauImpar()
+    {
+        List<Vertice> verticesImpares = new List<Vertice>();
+        foreach (Vertice v in Vertices())
+        {
+            if (Grau(v) % 2 != 0)
+            {
+                verticesImpares.Add(v);
+            }
+        }
+        return verticesImpares;
+    }
+
+
+    
 
     private void EncontrarCicloEuleriano(Grafo grafo, Vertice atual, List<Vertice> ciclo) {
         if (atual == null) {
