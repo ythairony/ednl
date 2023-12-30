@@ -14,6 +14,19 @@ public class Grafo {
         arestas = new List<Aresta>();
     }
 
+
+    public int Grau(Vertice v) {
+        int grau = 0;
+
+        foreach (Aresta a in arestas) {
+            if(a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
+                grau++;
+            }
+        }
+
+        return grau;
+    }
+
     public string FinalVertices(Aresta a) {
         return $"Os vértices da aresta {a.GetAresta()} são:\n{a.GetVerticeOrigem()}\n{a.GetVerticeDestino()}"; 
     }
@@ -75,9 +88,9 @@ public class Grafo {
     } 
 
 
-    public Aresta InserirAresta(Vertice v, Vertice w, object a) { //OK
+    public Aresta InserirAresta(Vertice v, Vertice w, object a, int p) { //OK
         // Insere e retorna uma nova aresta com os vertices v e w
-        Aresta aresta = new Aresta(a, v, w);
+        Aresta aresta = new Aresta(a, v, w, p);
         v.SetAresta(aresta);
         w.SetAresta(aresta);
         arestas.Add(aresta);
@@ -86,14 +99,21 @@ public class Grafo {
     }
 
 
-    public object RemoverVertice(Vertice v) {
+    public object RemoverVertice(Vertice v) { // Finalmente resolvido
         // Remove e retorna o elemento do vértice
         vertices.Remove(v);
 
-        foreach (Aresta a in arestas.ToList()) {
-            if (a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
-                arestas.Remove(a);
-            } 
+        List<Aresta> arestasARemover = new List<Aresta>();
+
+        foreach (Aresta a in v.GetArestas()) {
+            arestasARemover.Add(a);
+
+            Vertice verticeOposto = (v == a.GetVerticeOrigem()) ? a.GetVerticeDestino() : a.GetVerticeOrigem();
+            verticeOposto.RemoverAresta(a);
+        }
+
+        foreach (Aresta aRemover in arestasARemover) {
+            arestas.Remove(aRemover);
         }
 
         return v.GetVertice();
@@ -101,8 +121,11 @@ public class Grafo {
 
 
 
-    // Aparentemente resolvido =D
+
     public object RemoverAresta(Aresta a) { // OK
+        if (a == null) {
+            throw new ArgumentNullException("Aresta não pode ser nula.");
+        }
         // remove a aresta e retorna o elemento
         arestas.Remove(a); 
 
@@ -111,6 +134,8 @@ public class Grafo {
 
         vOrigem.GetArestas().Remove(a);
         vDestino.GetArestas().Remove(a);
+
+        
 
         return a.GetAresta(); 
     }
@@ -133,96 +158,74 @@ public class Grafo {
     }
 
 
-    //DIRIGIDO 
-    // public bool EDirecionado(object a) {
-    //     // testa se a aresta é direcionada
+    // Fleury
+    public List<Vertice> Fleury(List<Aresta> arestasAGM, Vertice verticeInicio) {
+        // Etapa 1: Inicialização
+        List<Vertice> cicloEuleriano = new List<Vertice>();
+        Grafo grafoDuplicado = CriarGrafoDuplicado(arestasAGM);
+
+        // Etapa 2: Encontrar o ciclo Euleriano
+        EncontrarCicloEuleriano(grafoDuplicado, verticeInicio, cicloEuleriano);
+
+        // Etapa 3: Eliminar vértices duplicados
+        RemoverVerticesDuplicados(cicloEuleriano);
+
+        return cicloEuleriano;
+    }
+
+    private Grafo CriarGrafoDuplicado(List<Aresta> arestasAGM) {
+        Grafo grafoDuplicado = new Grafo();
+
+        foreach (Aresta a in arestasAGM) {
+            // Duplicar cada aresta (cada aresta do AGM aparecerá duas vezes)
+            grafoDuplicado.InserirAresta(a.GetVerticeOrigem(), a.GetVerticeDestino(), a.GetAresta(), a.GetPeso());
+            grafoDuplicado.InserirAresta(a.GetVerticeDestino(), a.GetVerticeOrigem(), a.GetAresta(), a.GetPeso());
+        }
+
+        return grafoDuplicado;
+    }
+
+    // private Vertice EncontrarVerticeComGrauImpar(Grafo grafo) {
+    //     foreach (Vertice v in grafo.Vertices()) {
+    //         if (grafo.Grau(v) % 2 != 0) {
+    //             return v;
+    //         }
+    //     }
+    //     return null; // Isso não deveria acontecer em um grafo Euleriano
     // }
 
+    private void EncontrarCicloEuleriano(Grafo grafo, Vertice atual, List<Vertice> ciclo) {
+        if (atual == null) {
+            throw new ArgumentNullException(nameof(atual), "O vértice atual não pode ser nulo.");
+        }
+        foreach (Aresta a in grafo.ArestasIncidentes(atual)) {
+            Vertice proximo = a.GetVerticeDestino();
 
-    public Aresta InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
-        // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final
-        Aresta aresta = new Aresta(a, v_inicial, v_final);
-        v_inicial.SetAresta(aresta);
-        arestas.Add(aresta);
-        this.QntArestas++;
-        return aresta; 
-    }
-}
+            if (!a.Visitada()) {
+                a.Visitar(); // Marca a aresta como visitada
+                EncontrarCicloEuleriano(grafo, proximo, ciclo);
+            }
+        }
 
-
-public class Vertice {
-    private object vertice;
-    private List<Aresta> arestas; 
-    
-    public Vertice(object vertice) {
-        this.vertice = vertice;
-        this.arestas = new List<Aresta>();
+        // Adiciona o vértice atual ao ciclo
+        ciclo.Add(atual);
     }
 
+    private void RemoverVerticesDuplicados(List<Vertice> ciclo) {
+        // Cria um conjunto para manter o controle dos vértices já visitados
+        HashSet<Vertice> visitados = new HashSet<Vertice>();
+        List<Vertice> cicloSemDuplicatas = new List<Vertice>();
 
-    public object GetVertice() {
-        return vertice;
+        foreach (Vertice v in ciclo) {
+            if (!visitados.Contains(v)) {
+                cicloSemDuplicatas.Add(v);
+                visitados.Add(v);
+            }
+        }
+
+        // Atualiza a lista de ciclo para conter vértices sem duplicatas
+        ciclo.Clear();
+        ciclo.AddRange(cicloSemDuplicatas);
     }
 
-    
-    public List<Aresta> GetArestas() {
-        return arestas;
-    }
-
-
-    public void SetVertice(object v) {
-        this.vertice = v;
-    }
-
-    
-    public void SetAresta(Aresta a){
-        arestas.Add(a);
-    }
-
-
-    public void RemoverAresta(Aresta a) {
-        arestas.Remove(a);
-    }
-
-    public override string ToString() {
-        return $"{vertice}";
-    }
-}
-
-
-public class Aresta {
-    private Vertice verticeOrigem;
-    private Vertice verticeDestino;
-    private object aresta;
-
-    public Aresta(object aresta, Vertice vOrigem, Vertice vDestino) {
-        this.aresta = aresta;
-        this.verticeOrigem = vOrigem;
-        this.verticeDestino = vDestino;
-    }
-
-
-    public object GetAresta() {
-        return aresta;
-    }
-
-
-    public object GetVerticeOrigem() {
-        return verticeOrigem;
-    }
-
-
-    public object GetVerticeDestino() {
-        return verticeDestino;
-    }
-
-
-    public void SetAresta(object a) {
-        this.aresta = a;
-    }
-
-
-    public override string ToString() {
-        return $"A aresta [{aresta}] está conectada pelos vértices [{verticeOrigem.GetVertice()}] e [{verticeDestino.GetVertice()}]";
-    }
 }
