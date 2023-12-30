@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class Dijkstra {
-    private Dictionary<Vertice, Vertice> predecessores;
+    private Dictionary<Vertice, Vertice> antecessor;
 
     public Dictionary<Vertice, int> Executar(Grafo grafo, Vertice origem) {
         Dictionary<Vertice, int> distancia = new Dictionary<Vertice, int>();
         List<Vertice> naoVisitados = new List<Vertice>();
-        predecessores = new Dictionary<Vertice, Vertice>();
+        antecessor = new Dictionary<Vertice, Vertice>();
 
         foreach (Vertice v in grafo.Vertices()) {
             distancia[v] = int.MaxValue;
-            predecessores[v] = null;
+            antecessor[v] = null;
             naoVisitados.Add(v);
         }
 
@@ -28,7 +28,7 @@ public class Dijkstra {
 
                 if (distanciaAtualizada < distancia[v]) {
                     distancia[v] = distanciaAtualizada;
-                    predecessores[v] = u;
+                    antecessor[v] = u;
                 }
             }
         }
@@ -44,7 +44,7 @@ public class Dijkstra {
 
 
     public Vertice ObterAntecessor(Vertice v) {
-        return predecessores[v];
+        return antecessor[v];
     }
 
 }
