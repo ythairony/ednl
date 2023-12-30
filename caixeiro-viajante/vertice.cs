@@ -37,6 +37,6 @@ public class Vertice {
     }
 
     public override string ToString() {
-        return $"{vertice} tem {arestas.Count} arestas";
+        return $"{vertice}";
     }
 }

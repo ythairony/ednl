@@ -14,31 +14,31 @@ public class Program {
 
 
         // Teste Twice-Around
-        Aresta a01 = grafo.InserirAresta(v1, v2, "v1v2", 7);
-        Aresta a02 = grafo.InserirAresta(v1, v3, "v1v3", 5);
-        Aresta a03 = grafo.InserirAresta(v1, v5, "v1v5", 7);
-        Aresta a04 = grafo.InserirAresta(v1, v6, "v1v6", 8);
-        Aresta a05 = grafo.InserirAresta(v2, v3, "v2v3", 5);
-        Aresta a06 = grafo.InserirAresta(v2, v4, "v2v4", 2);
-        Aresta a07 = grafo.InserirAresta(v2, v5, "v2v5", 4);
-        Aresta a08 = grafo.InserirAresta(v2, v6, "v2v6", 2);
-        Aresta a09 = grafo.InserirAresta(v3, v4, "v3v4", 3);
-        Aresta a10 = grafo.InserirAresta(v3, v5, "v3v5", 3);
-        Aresta a11 = grafo.InserirAresta(v3, v6, "v3v6", 6);
-        Aresta a12 = grafo.InserirAresta(v4, v5, "v4v5", 2);
-        Aresta a13 = grafo.InserirAresta(v4, v6, "v4v6", 4);
-        Aresta a14 = grafo.InserirAresta(v5, v6, "v5v6", 3);
+        // Aresta a01 = grafo.InserirAresta(v1, v2, "v1v2", 7);
+        // Aresta a02 = grafo.InserirAresta(v1, v3, "v1v3", 5);
+        // Aresta a03 = grafo.InserirAresta(v1, v5, "v1v5", 7);
+        // Aresta a04 = grafo.InserirAresta(v1, v6, "v1v6", 8);
+        // Aresta a05 = grafo.InserirAresta(v2, v3, "v2v3", 5);
+        // Aresta a06 = grafo.InserirAresta(v2, v4, "v2v4", 2);
+        // Aresta a07 = grafo.InserirAresta(v2, v5, "v2v5", 4);
+        // Aresta a08 = grafo.InserirAresta(v2, v6, "v2v6", 2);
+        // Aresta a09 = grafo.InserirAresta(v3, v4, "v3v4", 3);
+        // Aresta a10 = grafo.InserirAresta(v3, v5, "v3v5", 3);
+        // Aresta a11 = grafo.InserirAresta(v3, v6, "v3v6", 6);
+        // Aresta a12 = grafo.InserirAresta(v4, v5, "v4v5", 2);
+        // Aresta a13 = grafo.InserirAresta(v4, v6, "v4v6", 4);
+        // Aresta a14 = grafo.InserirAresta(v5, v6, "v5v6", 3);
 
         // Teste Kruskal
-        // Aresta a01 = grafo.InserirAresta(v1, v2, "v1v2", 7);
-        // Aresta a02 = grafo.InserirAresta(v1, v6, "v1v6", 8);
-        // Aresta a03 = grafo.InserirAresta(v2, v3, "v2v3", 5);
-        // Aresta a04 = grafo.InserirAresta(v2, v6, "v2v6", 3);
-        // Aresta a05 = grafo.InserirAresta(v3, v4, "v3v4", 4);
-        // Aresta a06 = grafo.InserirAresta(v3, v5, "v3v5", 2);
-        // Aresta a07 = grafo.InserirAresta(v3, v6, "v3v6", 6);
-        // Aresta a08 = grafo.InserirAresta(v4, v5, "v4v5", 2);
-        // Aresta a09 = grafo.InserirAresta(v5, v6, "v5v6", 3);
+        Aresta a01 = grafo.InserirAresta(v1, v2, "v1v2", 7);
+        Aresta a02 = grafo.InserirAresta(v1, v6, "v1v6", 8);
+        Aresta a03 = grafo.InserirAresta(v2, v3, "v2v3", 5);
+        Aresta a04 = grafo.InserirAresta(v2, v6, "v2v6", 3);
+        Aresta a05 = grafo.InserirAresta(v3, v4, "v3v4", 4);
+        Aresta a06 = grafo.InserirAresta(v3, v5, "v3v5", 2);
+        Aresta a07 = grafo.InserirAresta(v3, v6, "v3v6", 6);
+        Aresta a08 = grafo.InserirAresta(v4, v5, "v4v5", 2);
+        Aresta a09 = grafo.InserirAresta(v5, v6, "v5v6", 3);
 
 
         // Console.WriteLine(grafo.RemoverVertice(v2));
@@ -63,9 +63,17 @@ public class Program {
 
         // Console.WriteLine();
         // Console.WriteLine();
-        Console.WriteLine("Lista de arestas ordenadas por peso");
+        Console.WriteLine("Lista de arestas AGM");
         foreach(Aresta a in grafo.Kruskal()) {
             Console.WriteLine(a.ToString());
         }
+
+        // List<Aresta> agm = grafo.Kruskal();
+        // List<Vertice> cicloEureliano = grafo.Fleury(agm, v1);
+
+        // Console.WriteLine("Ciclo Euleriano:");
+        // foreach (Vertice v in cicloEureliano) {
+        //     Console.WriteLine(v.ToString());
+        // }
     }
 }

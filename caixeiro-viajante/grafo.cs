@@ -14,6 +14,19 @@ public class Grafo {
         arestas = new List<Aresta>();
     }
 
+
+    public int Grau(Vertice v) {
+        int grau = 0;
+
+        foreach (Aresta a in arestas) {
+            if(a.GetVerticeOrigem().Equals(v) || a.GetVerticeDestino().Equals(v)) {
+                grau++;
+            }
+        }
+
+        return grau;
+    }
+
     public string FinalVertices(Aresta a) {
         return $"Os vértices da aresta {a.GetAresta()} são:\n{a.GetVerticeOrigem()}\n{a.GetVerticeDestino()}"; 
     }
@@ -186,6 +199,77 @@ public class Grafo {
 
         return mst;
     }
+
+
+    public List<Vertice> Fleury(List<Aresta> arestasAGM, Vertice verticeInicio) {
+        // Etapa 1: Inicialização
+        List<Vertice> cicloEuleriano = new List<Vertice>();
+        Grafo grafoDuplicado = CriarGrafoDuplicado(arestasAGM);
+
+        // Etapa 2: Encontrar o ciclo Euleriano
+        EncontrarCicloEuleriano(grafoDuplicado, verticeInicio, cicloEuleriano);
+
+        // Etapa 3: Eliminar vértices duplicados
+        RemoverVerticesDuplicados(cicloEuleriano);
+
+        return cicloEuleriano;
+    }
+
+    private Grafo CriarGrafoDuplicado(List<Aresta> arestasAGM) {
+        Grafo grafoDuplicado = new Grafo();
+
+        foreach (Aresta a in arestasAGM) {
+            // Duplicar cada aresta (cada aresta do AGM aparecerá duas vezes)
+            grafoDuplicado.InserirAresta(a.GetVerticeOrigem(), a.GetVerticeDestino(), a.GetAresta(), a.GetPeso());
+            grafoDuplicado.InserirAresta(a.GetVerticeDestino(), a.GetVerticeOrigem(), a.GetAresta(), a.GetPeso());
+        }
+
+        return grafoDuplicado;
+    }
+
+    // private Vertice EncontrarVerticeComGrauImpar(Grafo grafo) {
+    //     foreach (Vertice v in grafo.Vertices()) {
+    //         if (grafo.Grau(v) % 2 != 0) {
+    //             return v;
+    //         }
+    //     }
+    //     return null; // Isso não deveria acontecer em um grafo Euleriano
+    // }
+
+    private void EncontrarCicloEuleriano(Grafo grafo, Vertice atual, List<Vertice> ciclo) {
+        if (atual == null) {
+            throw new ArgumentNullException(nameof(atual), "O vértice atual não pode ser nulo.");
+        }
+        foreach (Aresta a in grafo.ArestasIncidentes(atual)) {
+            Vertice proximo = a.GetVerticeDestino();
+
+            if (!a.Visitada()) {
+                a.Visitar(); // Marca a aresta como visitada
+                EncontrarCicloEuleriano(grafo, proximo, ciclo);
+            }
+        }
+
+        // Adiciona o vértice atual ao ciclo
+        ciclo.Add(atual);
+    }
+
+    private void RemoverVerticesDuplicados(List<Vertice> ciclo) {
+        // Cria um conjunto para manter o controle dos vértices já visitados
+        HashSet<Vertice> visitados = new HashSet<Vertice>();
+        List<Vertice> cicloSemDuplicatas = new List<Vertice>();
+
+        foreach (Vertice v in ciclo) {
+            if (!visitados.Contains(v)) {
+                cicloSemDuplicatas.Add(v);
+                visitados.Add(v);
+            }
+        }
+
+        // Atualiza a lista de ciclo para conter vértices sem duplicatas
+        ciclo.Clear();
+        ciclo.AddRange(cicloSemDuplicatas);
+    }
+
 
 
     //DIRIGIDO 

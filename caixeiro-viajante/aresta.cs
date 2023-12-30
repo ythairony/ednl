@@ -7,6 +7,7 @@ public class Aresta {
     private Vertice verticeDestino;
     private object aresta;
     private int peso;
+    private bool visitada;
 
     public Aresta(object aresta, Vertice vOrigem, Vertice vDestino, int peso) {
         // Verificação se alguns dos vértices são nulos
@@ -18,6 +19,17 @@ public class Aresta {
         this.verticeOrigem = vOrigem;
         this.verticeDestino = vDestino;
         this.peso = peso;
+        this.visitada = false;
+    }
+
+
+    public bool Visitada() {
+        return this.visitada;
+    }
+
+
+    public void Visitar() {
+        this.visitada = true;
     }
 
 
