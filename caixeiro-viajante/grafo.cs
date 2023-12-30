@@ -75,9 +75,9 @@ public class Grafo {
     } 
 
 
-    public Aresta InserirAresta(Vertice v, Vertice w, object a) { //OK
+    public Aresta InserirAresta(Vertice v, Vertice w, object a, int p) { //OK
         // Insere e retorna uma nova aresta com os vertices v e w
-        Aresta aresta = new Aresta(a, v, w);
+        Aresta aresta = new Aresta(a, v, w, p);
         v.SetAresta(aresta);
         w.SetAresta(aresta);
         arestas.Add(aresta);
@@ -151,12 +151,12 @@ public class Grafo {
     // }
 
 
-    public Aresta InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
-        // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final
-        Aresta aresta = new Aresta(a, v_inicial, v_final);
-        v_inicial.SetAresta(aresta);
-        arestas.Add(aresta);
-        this.QntArestas++;
-        return aresta; 
-    }
+    // public Aresta InserirArestaDirecionada(Vertice v_inicial, Vertice v_final, object a) {
+    //     // Insere uma nova aresta dirigida com a origem em v_inicial e destino em v_final
+    //     Aresta aresta = new Aresta(a, v_inicial, v_final);
+    //     v_inicial.SetAresta(aresta);
+    //     arestas.Add(aresta);
+    //     this.QntArestas++;
+    //     return aresta; 
+    // }
 }

@@ -6,9 +6,9 @@ public class Aresta {
     private Vertice verticeOrigem;
     private Vertice verticeDestino;
     private object aresta;
-    private int value = 0;
+    private int peso;
 
-    public Aresta(object aresta, Vertice vOrigem, Vertice vDestino) {
+    public Aresta(object aresta, Vertice vOrigem, Vertice vDestino, int peso) {
         // Verificação se alguns dos vértices são nulos
         if (vOrigem == null || vDestino == null) {
             throw new ArgumentNullException("Os vértices de origem e destino não podem ser nulos.");
@@ -17,6 +17,7 @@ public class Aresta {
         this.aresta = aresta;
         this.verticeOrigem = vOrigem;
         this.verticeDestino = vDestino;
+        this.peso = peso;
     }
 
 
@@ -40,12 +41,12 @@ public class Aresta {
     }
 
     
-    public void SetValue(int value) {
-        this.value = value;
+    public void SetPeso(int peso) {
+        this.peso = peso;
     }
 
 
     public override string ToString() {
-        return $"A aresta [{aresta}] está conectada pelos vértices [{verticeOrigem.GetVertice()}] e [{verticeDestino.GetVertice()}]";
+        return $"A aresta [{aresta}] está conectada pelos vértices [{verticeOrigem.GetVertice()}] e [{verticeDestino.GetVertice()}] e o peso é {peso}";
     }
 }
