@@ -36,6 +36,11 @@ public class Aresta {
     }
 
 
+    public int GetPeso() {
+        return peso;
+    }
+
+
     public void SetAresta(object a) {
         this.aresta = a;
     }

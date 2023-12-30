@@ -145,6 +145,49 @@ public class Grafo {
     }
 
 
+    // KRUSKAL
+    public List<Aresta> Kruskal() {
+        List<Aresta> mst = new List<Aresta>();
+
+        List<Aresta> arestasOrdenadas = arestas.OrderBy(a => a.GetPeso()).ToList();
+
+        // Criando um conjunto para cada vértice utilizando a técnica do Union-Find
+        Dictionary<Vertice, HashSet<Vertice>> conjuntos = new Dictionary<Vertice, HashSet<Vertice>>();
+        foreach (Vertice v in vertices) {
+            conjuntos[v] = new HashSet<Vertice> { v };
+        }
+
+        // Adicionando arestas MST, evitando ciclos
+        foreach (Aresta a in arestasOrdenadas) {
+            Vertice origem = a.GetVerticeOrigem();
+            Vertice destino = a.GetVerticeDestino();
+
+            HashSet<Vertice> conjuntoOrigem = conjuntos[origem];
+            HashSet<Vertice> conjuntoDestino = conjuntos[destino];
+
+
+            if(!conjuntoOrigem.SetEquals(conjuntoDestino)) {
+                // Aresta não forma ciclo
+                mst.Add(a);
+
+                // Une os conjuntos dos vértices origem e destino
+                conjuntoOrigem.UnionWith(conjuntoDestino);
+
+                // Atualiza os conjuntos dos vértices afetados
+                foreach(Vertice v in conjuntoOrigem) {
+                    conjuntos[v] = conjuntoOrigem;
+                }
+
+                foreach(Vertice v in conjuntoDestino) {
+                    conjuntos[v] = conjuntoOrigem;
+                }
+            }
+        }
+
+        return mst;
+    }
+
+
     //DIRIGIDO 
     // public bool EDirecionado(object a) {
     //     // testa se a aresta é direcionada
