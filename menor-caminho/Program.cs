@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 
 class Program {
@@ -13,9 +14,23 @@ class Program {
         Console.WriteLine("Labirinto:");
         ImprimirMatriz(labirinto);
 
-        Console.WriteLine("\nMenor Caminho:");
-        List<Vertice> menorCaminho = labirinto.EncontrarMenorCaminho();
-        ImprimirCaminho(menorCaminho);
+        // Executar e medir o tempo de execução do algoritmo de Dijkstra
+        Stopwatch stopwatchDijkstra = new Stopwatch();
+        stopwatchDijkstra.Start();
+        Console.WriteLine("\nMenor Caminho - Dijkstra:");
+        List<Vertice> menorCaminhoDijkstra = labirinto.EncontrarMenorCaminho();
+        stopwatchDijkstra.Stop();
+        ImprimirCaminho(menorCaminhoDijkstra);
+        Console.WriteLine($"Tempo de execução (Dijkstra): {stopwatchDijkstra.ElapsedMilliseconds*1000}");
+
+        // Executar e medir o tempo de execução do algoritmo A*
+        Stopwatch stopwatchAStar = new Stopwatch();
+        stopwatchAStar.Start();
+        Console.WriteLine("\nMenor Caminho - A*:");
+        List<Vertice> menorCaminhoAStar = labirinto.EncontrarMenorCaminhoAEstrela();
+        stopwatchAStar.Stop();
+        ImprimirCaminho(menorCaminhoAStar);
+        Console.WriteLine($"Tempo de execução (A*): {stopwatchAStar.ElapsedMilliseconds*1000}");
     }
 
     static void ImprimirMatriz(Labirinto labirinto) {

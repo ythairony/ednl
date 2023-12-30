@@ -106,6 +106,23 @@ public class Labirinto {
     }
 
 
+    public List<Vertice> EncontrarMenorCaminhoAEstrela() {
+        AEstrela aEstrela = new AEstrela();
+        Dictionary<Vertice, int> distancias = aEstrela.Executar(grafo, pontoPartida);
+
+        // Reconstruir o caminho
+        List<Vertice> caminho = new List<Vertice>();
+        Vertice atual = pontoSaida;
+
+        while (atual != null) {
+            caminho.Insert(0, atual);
+            atual = aEstrela.ObterAntecessor(atual);
+        }
+
+        return caminho;
+    }
+
+
     public Grafo ObterGrafo() {
         return grafo;
     }
