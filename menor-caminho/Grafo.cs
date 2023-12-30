@@ -32,7 +32,7 @@ public class Grafo {
     }
 
 
-    public object Oposto(Vertice vertice, Aresta aresta) { //OK mas precisa identificar a milacria do print
+    public Vertice Oposto(Vertice vertice, Aresta aresta) { //OK mas precisa identificar a milacria do print
         // retorna ou outro vértice
         Vertice oposto = null;
         foreach(Aresta a in arestas) {
@@ -46,7 +46,7 @@ public class Grafo {
         }
 
         if (oposto != null) {
-            return oposto.ToString();
+            return oposto;
         } else {
             throw new InvalidOperationException("Não há vértice oposto"); 
         }
@@ -88,9 +88,9 @@ public class Grafo {
     } 
 
 
-    public Aresta InserirAresta(Vertice v, Vertice w, object a, int p) { //OK
+    public Aresta InserirAresta(Vertice v, Vertice w, object a) { //OK
         // Insere e retorna uma nova aresta com os vertices v e w
-        Aresta aresta = new Aresta(a, v, w, p);
+        Aresta aresta = new Aresta(a, v, w);
         v.SetAresta(aresta);
         w.SetAresta(aresta);
         arestas.Add(aresta);

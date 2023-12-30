@@ -1,0 +1,15 @@
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.csproj.AssemblyReference.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.AssemblyInfoInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.AssemblyInfo.cs
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.csproj.CoreCompileInputs.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\bin\Debug\net7.0\menor-caminho.exe
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\bin\Debug\net7.0\menor-caminho.deps.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\bin\Debug\net7.0\menor-caminho.runtimeconfig.json
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\bin\Debug\net7.0\menor-caminho.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\bin\Debug\net7.0\menor-caminho.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\refint\menor-caminho.dll
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.pdb
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\menor-caminho.genruntimeconfig.cache
+C:\Users\yurit\OneDrive\Documentos\IFRN\período 4\EDNL\ednl\menor-caminho\obj\Debug\net7.0\ref\menor-caminho.dll
