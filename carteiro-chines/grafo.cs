@@ -32,7 +32,7 @@ public class Grafo {
     }
 
 
-    public object Oposto(Vertice vertice, Aresta aresta) { //OK mas precisa identificar a milacria do print
+    public Vertice Oposto(Vertice vertice, Aresta aresta) { //OK mas precisa identificar a milacria do print
         // retorna ou outro vértice
         Vertice oposto = null;
         foreach(Aresta a in arestas) {
@@ -46,7 +46,7 @@ public class Grafo {
         }
 
         if (oposto != null) {
-            return oposto.ToString();
+            return oposto;
         } else {
             throw new InvalidOperationException("Não há vértice oposto"); 
         }
